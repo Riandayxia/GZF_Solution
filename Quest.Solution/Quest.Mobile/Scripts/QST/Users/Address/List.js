@@ -40,7 +40,7 @@ Ext.define('QST.Users.Address.List', {
                    '</div>',
                    //修改
                    '<div class="ctent" style="width:20%;">',
-                    '<div style="float:center;width:120%;height: 70%;margin:13px 0 0 0"><img class="updates"  src="resources/images/Users/Address/laji@2x.png"/></div>',
+                    '<div style="float:center;width:120%;height: 70%;margin:13px 0 0 0"><img class="updates"  src="resources/images/Users/Address/bianji@2x.png"/></div>',
                    '</div>',
                    //删除
                    '<div class="ctent" style="width:20%;">',
