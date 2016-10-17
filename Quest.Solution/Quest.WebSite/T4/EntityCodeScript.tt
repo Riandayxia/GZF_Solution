@@ -1,0 +1,80 @@
+﻿<#@ template language="C#" debug="True" #>
+<#@ output extension="cs" #>
+<#@ Assembly Name="System.Core" #>
+<#@ Assembly Name="$(SolutionDir)\Quest.Framework\bin\Debug\Quest.Framework.dll" #>
+<#@ import namespace="System.IO" #>
+<#@ Import Namespace="System.Linq" #>
+<#@ Import Namespace="System.Text" #>
+<#@ import namespace="System.Reflection" #>
+<#@ Import Namespace="System.Collections.Generic" #>
+<#@ Import Namespace="Quest.Framework" #>
+<#@ Import Namespace="Quest.Framework.T4" #>
+<#@ include file="T4Toolbox.tt" #>
+<#@ include file="Include\EntityControllerTemplate.tt" #>
+<#@ include file="Include\EntityGridTemplate.tt" #>
+<#@ include file="Include\EntityEditTemplate.tt" #>
+<#@ include file="Include\EntityLayoutTemplate.tt" #>
+
+<#
+    string currentPath = Path.GetDirectoryName(Host.TemplateFile);
+    string projectPath =currentPath.Substring(0, currentPath.IndexOf(@"\T4"));
+    string solutionPath = currentPath.Substring(0, currentPath.IndexOf(@"\Quest.WebSite"));
+
+    string modelFile= Path.Combine(solutionPath, @"Quest.Core.Models\bin\Debug\Quest.Core.Models.dll");
+    byte[] fileData= File.ReadAllBytes(modelFile);
+    Assembly assembly = Assembly.Load(fileData);
+    Type dbT = typeof(DBTableAttribute);
+    //Type dbV = typeof(DBViewAttribute);
+    Type[] modelTypes = assembly.GetTypes().Where(m => m.GetCustomAttributes(dbT,true).Length>0 ).ToArray();
+    
+    foreach(Type modelType in modelTypes)
+    {
+        bool isTable=true;
+        var modelA=modelType.GetCustomAttributes(dbT,true);   
+        var bs= modelType.BaseType.GetCustomAttributes(dbT,true);   
+        if(modelA.Length==0||bs.Length>0){
+            isTable=false;
+        }
+        if(isTable){        
+            T4ModelInfo model = new T4ModelInfo(modelType,isTable, true);
+            string modulename=model.ModuleName=="Models"?"":model.ModuleName;
+        
+            // MVC应用层Controller
+            EntityControllerTemplate ect=new EntityControllerTemplate(model);
+            ect.Model_Namespace=modelType.Namespace;
+            var path=model.UseModuleDir
+                ?string.Format(@"{0}\Controllers\{1}\Auto\",projectPath,modulename)
+                :string.Format(@"{0}\Controllers\Auto\", projectPath);
+            ect.Output.Encoding = Encoding.UTF8;
+            ect.RenderToFile(Path.Combine(path, ect.FileName));
+            
+            // Sencha Touch Grid模板
+            EntityGridTemplate grid=new EntityGridTemplate(model);
+            grid.Model_Namespace=modelType.Namespace;
+            var gridpath=model.UseModuleDir
+                ?string.Format(@"{0}\T4\App\{1}\{2}\",projectPath,modulename,model.Name)
+                :string.Format(@"{0}\T4\App\", projectPath);
+            grid.Output.Encoding = Encoding.UTF8;
+            grid.RenderToFile(Path.Combine(gridpath, grid.FileName));
+
+            // Sencha Touch 编辑模板
+            EntityEditTemplate edit=new EntityEditTemplate(model);
+            edit.Model_Namespace=modelType.Namespace;
+            var editPath=model.UseModuleDir
+                ?string.Format(@"{0}\T4\App\{1}\{2}\",projectPath,modulename,model.Name)
+                :string.Format(@"{0}\T4\App\", projectPath);
+            edit.Output.Encoding = Encoding.UTF8;
+            edit.RenderToFile(Path.Combine(editPath, edit.FileName));
+
+            // Sencha Touch 布局模板
+            EntityLayoutTemplate layout=new EntityLayoutTemplate(model);
+            layout.Model_Namespace=modelType.Namespace;
+            var layoutPath=model.UseModuleDir
+                ?string.Format(@"{0}\T4\App\{1}\{2}\",projectPath,modulename,model.Name)
+                :string.Format(@"{0}\T4\App\", projectPath);
+            layout.Output.Encoding = Encoding.UTF8;
+            layout.RenderToFile(Path.Combine(layoutPath, layout.FileName));
+			
+        }
+    }
+#>

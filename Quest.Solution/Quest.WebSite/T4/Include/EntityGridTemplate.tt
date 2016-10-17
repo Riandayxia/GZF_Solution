@@ -1,0 +1,196 @@
+﻿<#+
+// <copyright file="EntityGridTemplate.tt" company="溯汇软件@中国">
+//  Copyright © 溯汇软件@中国. All Rights Reserved.
+// </copyright>
+
+    public class EntityGridTemplate : CSharpTemplate
+    {       
+        public EntityGridTemplate(T4ModelInfo model){
+            this._model=model;
+        }
+
+        private T4ModelInfo _model; 
+        /// <summary>
+        /// 获取 生成的文件名，根据模型名定义
+        /// </summary>
+        public string FileName
+        {
+            get
+            { 
+                return string.Format("{0}.js", "Grid");
+            }
+        }
+
+        /// <summary>
+        /// 获取 Model命名空间，根据模型名定义
+        /// </summary>
+        public string Model_Namespace{get;set;}
+
+        public override string TransformText()
+        {
+		string modelArray="";
+        System.Text.StringBuilder fieldArray=new System.Text.StringBuilder();
+		foreach(PropertyInfo pro in _model.Properties){
+		
+			string labelName=pro.Name;
+			Object[] obj = pro.GetCustomAttributes(typeof(DBColumnAttribute), true);
+			if (!obj.IsNullOrEmpty() && obj.Length > 0)
+			{
+				DBColumnAttribute ma = obj[0] as DBColumnAttribute;
+				labelName=ma.Desc;
+			}
+			if(modelArray==""){
+				modelArray="'"+pro.Name+"'";
+				fieldArray.Append("{ text: '"+labelName+"', dataIndex: '"+pro.Name+"', flex: 1 },");
+                fieldArray.AppendLine();
+			}else{
+				modelArray+=", '"+pro.Name+"'";
+				fieldArray.Append("\t\t{ text: '"+labelName+"', dataIndex: '"+pro.Name+"', flex: 1 },");
+                fieldArray.AppendLine();
+			}
+		}
+#>
+/**-----------------------------------------------------------------
+* @explanation:<#= _model.Description #>信息列表
+* @created：rainday
+* @create time：<#= DateTime.Now.ToString("yyyy-MM-dd HH:mm") #>
+* @modified history: //修改历史
+/-------------------------------------------------------------------*/
+
+Ext.define('<#=  _model.ModuleName#>.<#= _model.Name #>.Grid', {
+    extend: 'Ext.user.NGrid',
+    xtype: '<#= _model.ModuleName.ToLower()#>_<#= _model.Name.ToLower() #>_grid',
+    stateId: '<#= _model.ModuleName.ToLower()#>_<#= _model.Name.ToLower() #>_grid',
+    controllerName: '<#= _model.Name #>',
+    al: false,
+    isSelect: false,
+    layout: 'fit',
+    //方法地址
+    dataUrl: '<#= _model.Name #>/GetAll',
+    modelArray: [<#=modelArray#>],
+    columns: [
+        <#=fieldArray#>
+    ],
+    featureArray: [{
+        action: 'add_Data',
+        iconCls: 'icon_add',
+        text: '新增',
+        serveUrl: '<#= _model.Name #>/Add',
+        type: [1, 3]
+    }, {
+        action: 'updata_Data',
+        iconCls: 'icon_edit',
+        text: '修改',
+        serveUrl: '<#= _model.Name #>/Update',
+        type: [1, 2]
+    }, {
+        action: 'del_Data',
+        iconCls: 'icon_delete',
+        text: '删除',
+        serveUrl: '<#= _model.Name #>/Delete',
+        type: [1, 2]
+    }, {
+        otype: 'nsearch',
+        action: 'search_Data',
+        serveUrl: '<#= _model.Name #>/Search',
+        width: 300,
+        type: [1]
+    }],
+    // 事件监听器
+    listeners: {
+        // 添加
+        add_Data: function (but, record) {
+            this.add_Data(but, record, this);
+        },
+        // 修改
+        updata_Data: function (but, record) {
+            this.updata_Data(but, record, this);
+        },
+        // 删除
+        del_Data: function (but, record) {
+            this.del_Data(but, record, this);
+        },
+        // 查询
+        search_Data: function (but, record) {
+            this.search_Data(but, record, this);
+        }
+    },
+    // 添加
+    add_Data: function (but, record, grid) {
+        var me = this;
+        //获得 添加窗体对象
+        var object = {
+            winTitle: but.text, winWidth: 660, win: '<#= _model.ModuleName#>.<#= _model.Name #>.Edit', hideFields: me.typeFields, config: {
+                saveUrl: but.menuObj.serveUrl,
+                onSaveSuccess: function (action) {
+                    if (action.result.success) {
+                        grid.load_Data();
+                    }
+                }
+            }
+        }
+        if(!grid.winEdit){
+            grid.winEdit = util.createWindow(object);
+        }
+        var form = grid.winEdit.down("form").getForm();
+        form.reset();
+        // 打开窗体
+        grid.winEdit.show();
+    },
+    // 修改
+    updata_Data: function (but, record, grid) {
+        var me = this;
+        //得到选中的数据
+        var selected = grid.getSelectionTobject();
+        if (!selected) {
+            Ext.Msg.alert("提示", "请选择修改数据");
+            return;
+        }
+        //获得 添加窗体对象
+        var object = {
+            winTitle: but.text, winWidth: 660, win: '<#= _model.ModuleName#>.<#= _model.Name #>.Edit', hideFields: me.typeFields, config: {
+                saveUrl: but.menuObj.serveUrl,
+                onSaveSuccess: function () {
+                    grid.load_Data();
+                }
+            }
+        }
+        if(!grid.winEdit){
+            grid.winEdit = util.createWindow(object);
+        }
+        var form = grid.winEdit.down("form").getForm();
+        form.reset();
+        //给添加窗体赋值
+        form.setValues(selected);
+        // 打开窗体
+        grid.winEdit.show();
+    },
+    // 删除
+    del_Data: function (but, record, grid) {
+        var me = this;
+        //得到选中的数据
+        var selected = grid.getSelectionTobject();
+        if (!selected) {
+            Ext.Msg.alert("提示", "请选择删除数据");
+            return;
+        }
+        util.doDelete({
+            url: but.menuObj.serveUrl,//提交地址
+            params: { ids: selected.Id },//参数
+            success: function (result) {
+                if (result) {
+                    grid.load_Data();
+                }
+            }
+        });
+    },
+    // 加载数据
+    load_Data: function () {
+        this.store.load();
+    },
+    // 查询
+    search_Data: function (but, record, grid) { }
+});
+<#+ return this.GenerationEnvironment.ToString();
+        }
+    }#>

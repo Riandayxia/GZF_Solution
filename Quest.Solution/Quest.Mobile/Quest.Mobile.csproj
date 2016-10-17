@@ -1,0 +1,511 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{9AAE60B4-37DE-40C1-BFA1-D118B2BA7BC9}</ProjectGuid>
+    <ProjectTypeGuids>{E3E379DF-F4C6-4180-9B81-6769533ABE47};{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Quest.Mobile</RootNamespace>
+    <AssemblyName>Quest.Mobile</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <MvcProjectUpgradeChecked>true</MvcProjectUpgradeChecked>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>12.0</OldToolsVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Mvc.FixedDisplayModes, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.FixedDisplayModes.1.0.0\lib\net40\Microsoft.Web.Mvc.FixedDisplayModes.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.4.5.11\lib\net40\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.Formatting, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.4.0.30506.0\lib\net40\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.30506.0\lib\net40\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.4.0.30506.0\lib\net40\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.4.0.30506.0\lib\net40\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.4.0.30506.0\lib\net40\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.2.0.30506.0\lib\net40\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.30506.0\lib\net40\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.30506.0\lib\net40\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.30506.0\lib\net40\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\Base_AR.cs" />
+    <Compile Include="App_Start\Property_AR.cs" />
+    <Compile Include="App_Start\BPM_AR.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\SuHuiRazorViewEngine.cs" />
+    <Compile Include="CommonSupport\BaseController.cs" />
+    <Compile Include="CommonSupport\CurrentUser.cs" />
+    <Compile Include="CommonSupport\FilterConfig.cs" />
+    <Compile Include="CommonSupport\Filter\AdminAuthorizeAttribute.cs" />
+    <Compile Include="CommonSupport\Filter\ExceptionAttribute.cs" />
+    <Compile Include="CommonSupport\Filter\LogAttribute.cs" />
+    <Compile Include="CommonSupport\Filter\NoAuthorizeAttribute.cs" />
+    <Compile Include="CommonSupport\Filter\ViewPageAttribute.cs" />
+    <Compile Include="CommonSupport\FormatJsonExtension.cs" />
+    <Compile Include="Controllers\Base\Auto\UserController.cs" />
+    <Compile Include="Controllers\Base\UserController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\HouseManage\Auto\HousekeepingController.cs" />
+    <Compile Include="Controllers\HouseManage\HousekeepingController.cs" />
+    <Compile Include="Controllers\InitDataController.cs" />
+    <Compile Include="Controllers\Property\Auto\CommunityController.cs" />
+    <Compile Include="Controllers\Property\Auto\PAccountController.cs" />
+    <Compile Include="Controllers\Property\Auto\PaymentController.cs" />
+    <Compile Include="Controllers\Property\Auto\NewsPaperController.cs" />
+    <Compile Include="Controllers\Property\Auto\ComplaintsController.cs" />
+    <Compile Include="Controllers\Property\CommunityController.cs" />
+    <Compile Include="Controllers\Property\PAccountController.cs" />
+    <Compile Include="Controllers\Property\PaymentController.cs" />
+    <Compile Include="Controllers\Property\NewsPaperController.cs" />
+    <Compile Include="Controllers\Property\ComplaintsController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Helper\Ioc\MefDependencySolver.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModels\LoginModel.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="Content\themes\base\images\ui-icons_222222_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_454545_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_888888_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Content\themes\base\jquery-ui.css" />
+    <Content Include="Content\themes\base\jquery.ui.accordion.css" />
+    <Content Include="Content\themes\base\jquery.ui.all.css" />
+    <Content Include="Content\themes\base\jquery.ui.autocomplete.css" />
+    <Content Include="Content\themes\base\jquery.ui.base.css" />
+    <Content Include="Content\themes\base\jquery.ui.button.css" />
+    <Content Include="Content\themes\base\jquery.ui.core.css" />
+    <Content Include="Content\themes\base\jquery.ui.datepicker.css" />
+    <Content Include="Content\themes\base\jquery.ui.dialog.css" />
+    <Content Include="Content\themes\base\jquery.ui.progressbar.css" />
+    <Content Include="Content\themes\base\jquery.ui.resizable.css" />
+    <Content Include="Content\themes\base\jquery.ui.selectable.css" />
+    <Content Include="Content\themes\base\jquery.ui.slider.css" />
+    <Content Include="Content\themes\base\jquery.ui.tabs.css" />
+    <Content Include="Content\themes\base\jquery.ui.theme.css" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="Content\themes\base\minified\images\ui-icons_222222_256x240.png" />
+    <Content Include="Content\themes\base\minified\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Content\themes\base\minified\images\ui-icons_454545_256x240.png" />
+    <Content Include="Content\themes\base\minified\images\ui-icons_888888_256x240.png" />
+    <Content Include="Content\themes\base\minified\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Content\themes\base\minified\jquery-ui.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.accordion.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.autocomplete.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.button.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.core.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.datepicker.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.dialog.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.progressbar.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.resizable.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.selectable.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.slider.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.tabs.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.theme.min.css" />
+    <Content Include="favicon.ico" />
+    <Content Include="Global.asax" />
+    <Content Include="Scripts\app.js" />
+    <Content Include="Scripts\config.js" />
+    <Content Include="Scripts\cordova.js" />
+    <Content Include="Scripts\cordova_plugins.js" />
+    <Content Include="Scripts\index.html" />
+    <Content Include="Scripts\QST\Property\Complaints\Details.js" />
+    <Content Include="Scripts\QST\Property\Convenience\Layout.js" />
+    <Content Include="Scripts\QST\Property\Convenience\List.js" />
+    <Content Include="Scripts\QST\Property\Convenience\Middle.js" />
+    <Content Include="Scripts\QST\Property\Convenience\Top.js" />
+    <Content Include="Scripts\QST\HouseManage\Housekeeping\CWEdit.js" />
+    <Content Include="Scripts\QST\HouseManage\Housekeeping\HAEdit.js" />
+    <Content Include="Scripts\QST\HouseManage\Housekeeping\List.js" />
+    <Content Include="Scripts\QST\HouseManage\Housekeeping\PJEdit.js" />
+    <Content Include="Scripts\QST\HouseManage\Housekeeping\YSEdit.js" />
+    <Content Include="Scripts\QST\Main\Guide.js" />
+    <Content Include="Scripts\QST\Main\Home.js" />
+    <Content Include="Scripts\QST\Main\HomeMiddleImg.js" />
+    <Content Include="Scripts\QST\Main\HomeTopImg.js" />
+    <Content Include="Scripts\QST\Main\InfoTab.js" />
+    <Content Include="Scripts\QST\Main\Layout.js" />
+    <Content Include="Scripts\QST\Main\Login.js" />
+    <Content Include="Scripts\QST\Main\HomeMenu.js" />
+    <Content Include="Scripts\QST\Mall\Digital.js" />
+    <Content Include="Scripts\QST\Mall\Selling.js" />
+    <Content Include="Scripts\QST\Mall\MiddleImg.js" />
+    <Content Include="Scripts\QST\Mall\Menu.js" />
+    <Content Include="Scripts\QST\Mall\Top.js" />
+    <Content Include="Scripts\QST\Personal\Layout.js" />
+    <Content Include="Scripts\QST\Personal\Bottom.js" />
+    <Content Include="Scripts\QST\Personal\Middle.js" />
+    <Content Include="Scripts\QST\Personal\Top.js" />
+    <Content Include="Scripts\QST\Main\Registered.js" />
+    <Content Include="Scripts\QST\Main\Retrieve.js" />
+    <Content Include="Scripts\QST\Property\Community\Details.js" />
+    <Content Include="Scripts\QST\Property\Community\Layout.js" />
+    <Content Include="Scripts\QST\Property\Community\AList.js" />
+    <Content Include="Scripts\QST\Property\Community\List.js" />
+    <Content Include="Scripts\QST\Mall\Layout.js" />
+    <Content Include="Scripts\QST\Property\Complaints\Edit.js" />
+    <Content Include="Scripts\QST\Property\Complaints\List.js" />
+    <Content Include="Scripts\QST\Property\NewsPaper\Details.js" />
+    <Content Include="Scripts\QST\Property\NewsPaper\Edit.js" />
+    <Content Include="Scripts\QST\Property\NewsPaper\Layout.js" />
+    <Content Include="Scripts\QST\Property\NewsPaper\HList.js" />
+    <Content Include="Scripts\QST\Property\NewsPaper\List.js" />
+    <Content Include="Scripts\QST\Property\NewsPaper\SList.js" />
+    <Content Include="Scripts\QST\Property\PAccount\Edit.js" />
+    <Content Include="Scripts\QST\Property\PAccount\Hlist.js" />
+    <Content Include="Scripts\QST\Property\PAccount\Layout.js" />
+    <Content Include="Scripts\QST\Property\PAccount\List.js" />
+    <Content Include="Scripts\QST\Property\PAccount\SEdit.js" />
+    <Content Include="Scripts\QST\Property\PAccount\TEdit.js" />
+    <Content Include="Scripts\QST\Property\PAccount\KEdit.js" />
+    <Content Include="Scripts\QST\Property\PAccount\WEdit.js" />
+    <Content Include="Scripts\QST\Property\Payment\Edit.js" />
+    <Content Include="Scripts\QST\Property\Payment\Hlist.js" />
+    <Content Include="Scripts\QST\Property\Payment\List.js" />
+    <Content Include="Scripts\QST\Property\Payment\Layout.js" />
+    <Content Include="Scripts\QST\Util.js" />
+    <Content Include="Scripts\resources\css\app.css" />
+    <Content Include="Scripts\resources\css\main.css" />
+    <Content Include="Scripts\resources\icons\file_doc.png" />
+    <Content Include="Scripts\resources\icons\file_dwg.png" />
+    <Content Include="Scripts\resources\icons\file_pdf.png" />
+    <Content Include="Scripts\resources\icons\file_ppt.png" />
+    <Content Include="Scripts\resources\icons\file_txt.png" />
+    <Content Include="Scripts\resources\icons\file_unknown.png" />
+    <Content Include="Scripts\resources\icons\file_xls.png" />
+    <Content Include="Scripts\resources\icons\Icon%402x.png" />
+    <Content Include="Scripts\resources\icons\icon-500.png" />
+    <Content Include="Scripts\resources\icons\icon-spot~ipad.png" />
+    <Content Include="Scripts\resources\icons\Icon.png" />
+    <Content Include="Scripts\resources\icons\Icon_Android36.png" />
+    <Content Include="Scripts\resources\icons\Icon_Android48.png" />
+    <Content Include="Scripts\resources\icons\Icon~ipad%402x.png" />
+    <Content Include="Scripts\resources\icons\Icon~ipad.png" />
+    <Content Include="Scripts\resources\icons\iTunesArtwork.png" />
+    <Content Include="Scripts\resources\images\1.jpg" />
+    <Content Include="Scripts\resources\images\3.jpg" />
+    <Content Include="Scripts\resources\images\4.jpg" />
+    <Content Include="Scripts\resources\images\5.jpg" />
+    <Content Include="Scripts\resources\images\6.jpg" />
+    <Content Include="Scripts\resources\images\Add.png" />
+    <Content Include="Scripts\resources\images\Add2.png" />
+    <Content Include="Scripts\resources\images\Arrow.png" />
+    <Content Include="Scripts\resources\images\Del.png" />
+    <Content Include="Scripts\resources\images\desktop\aqgl.png" />
+    <Content Include="Scripts\resources\images\desktop\aqtzgl.png" />
+    <Content Include="Scripts\resources\images\desktop\bxsq.png" />
+    <Content Include="Scripts\resources\images\desktop\cggl.png" />
+    <Content Include="Scripts\resources\images\desktop\cksq.png" />
+    <Content Include="Scripts\resources\images\desktop\clgl.png" />
+    <Content Include="Scripts\resources\images\desktop\clpd.png" />
+    <Content Include="Scripts\resources\images\desktop\clsq.png" />
+    <Content Include="Scripts\resources\images\desktop\cscgjh.png" />
+    <Content Include="Scripts\resources\images\desktop\cscgyl.png" />
+    <Content Include="Scripts\resources\images\desktop\cstzgl.png" />
+    <Content Include="Scripts\resources\images\desktop\cwzx.png" />
+    <Content Include="Scripts\resources\images\desktop\gczs.png" />
+    <Content Include="Scripts\resources\images\desktop\glrz.png" />
+    <Content Include="Scripts\resources\images\desktop\gzl.png" />
+    <Content Include="Scripts\resources\images\desktop\gzrw.png" />
+    <Content Include="Scripts\resources\images\desktop\htgl.png" />
+    <Content Include="Scripts\resources\images\desktop\jksq.png" />
+    <Content Include="Scripts\resources\images\desktop\jlgl.png" />
+    <Content Include="Scripts\resources\images\desktop\jsgl.png" />
+    <Content Include="Scripts\resources\images\desktop\other.png" />
+    <Content Include="Scripts\resources\images\desktop\qdrz.png" />
+    <Content Include="Scripts\resources\images\desktop\qdtzgl.png" />
+    <Content Include="Scripts\resources\images\desktop\qjsq.png" />
+    <Content Include="Scripts\resources\images\desktop\qywh.png" />
+    <Content Include="Scripts\resources\images\desktop\rksq.png" />
+    <Content Include="Scripts\resources\images\desktop\rlzy.png" />
+    <Content Include="Scripts\resources\images\desktop\rsgl.png" />
+    <Content Include="Scripts\resources\images\desktop\rygl.png" />
+    <Content Include="Scripts\resources\images\desktop\rzgl.png" />
+    <Content Include="Scripts\resources\images\desktop\srhtgl.png" />
+    <Content Include="Scripts\resources\images\desktop\sygl.png" />
+    <Content Include="Scripts\resources\images\desktop\tzgl.png" />
+    <Content Include="Scripts\resources\images\desktop\wdlc.png" />
+    <Content Include="Scripts\resources\images\desktop\wdrw.png" />
+    <Content Include="Scripts\resources\images\desktop\wdsp.png" />
+    <Content Include="Scripts\resources\images\desktop\weather.png" />
+    <Content Include="Scripts\resources\images\desktop\wz.png" />
+    <Content Include="Scripts\resources\images\desktop\xhrz.png" />
+    <Content Include="Scripts\resources\images\desktop\xmjd.png" />
+    <Content Include="Scripts\resources\images\desktop\xmjh.png" />
+    <Content Include="Scripts\resources\images\desktop\xmyjd.png" />
+    <Content Include="Scripts\resources\images\desktop\xmyjh.png" />
+    <Content Include="Scripts\resources\images\desktop\xwzx.png" />
+    <Content Include="Scripts\resources\images\desktop\zchtgl.png" />
+    <Content Include="Scripts\resources\images\desktop\zdftzgl.png" />
+    <Content Include="Scripts\resources\images\desktop\zlgl.png" />
+    <Content Include="Scripts\resources\images\desktop\ztbxx.png" />
+    <Content Include="Scripts\resources\images\Guide1.png" />
+    <Content Include="Scripts\resources\images\Guide2.png" />
+    <Content Include="Scripts\resources\images\Guide3.png" />
+    <Content Include="Scripts\resources\images\main\convenience2x.png" />
+    <Content Include="Scripts\resources\images\main\wyf2x.png" />
+    <Content Include="Scripts\resources\images\main\service2x.png" />
+    <Content Include="Scripts\resources\images\main\information2x.png" />
+    <Content Include="Scripts\resources\images\main\live2x.png" />
+    <Content Include="Scripts\resources\images\main\business2x.png" />
+    <Content Include="Scripts\resources\images\main\housekeeping2x.png" />
+    <Content Include="Scripts\resources\images\main\mall2x.png" />
+    <Content Include="Scripts\resources\images\main\speaker2x.png" />
+    <Content Include="Scripts\resources\images\mallTop.png" />
+    <Content Include="Scripts\resources\images\middle_img_2.png" />
+    <Content Include="Scripts\resources\images\middle_img_3.png" />
+    <Content Include="Scripts\resources\images\ok.png" />
+    <Content Include="Scripts\resources\images\personal_top.png" />
+    <Content Include="Scripts\resources\images\property\convenience\government2x.png" />
+    <Content Include="Scripts\resources\images\property\convenience\government3x.png" />
+    <Content Include="Scripts\resources\images\property\convenience\hospital2x.png" />
+    <Content Include="Scripts\resources\images\property\convenience\hospital3x.png" />
+    <Content Include="Scripts\resources\images\property\convenience\houses2x.png" />
+    <Content Include="Scripts\resources\images\property\convenience\houses3x.png" />
+    <Content Include="Scripts\resources\images\property\convenience\police2x.png" />
+    <Content Include="Scripts\resources\images\property\convenience\police3x.png" />
+    <Content Include="Scripts\resources\images\property\convenience\restaurant2x.png" />
+    <Content Include="Scripts\resources\images\property\convenience\restaurant3x.png" />
+    <Content Include="Scripts\resources\images\property\convenience\school2x.png" />
+    <Content Include="Scripts\resources\images\property\convenience\school3x.png" />
+    <Content Include="Scripts\resources\images\property\newspaper\addreport2x.png" />
+    <Content Include="Scripts\resources\images\property\newspaper\addreport3x.png" />
+    <Content Include="Scripts\resources\images\property\newspaper\history2x.png" />
+    <Content Include="Scripts\resources\images\property\newspaper\history3x.png" />
+    <Content Include="Scripts\resources\images\property\newspaper\pending2x.png" />
+    <Content Include="Scripts\resources\images\property\newspaper\pending3x.png" />
+    <Content Include="Scripts\resources\images\property\newspaper\reply2x.png" />
+    <Content Include="Scripts\resources\images\property\newspaper\reply3x.png" />
+    <Content Include="Scripts\resources\images\property\payment\broadband2x.png" />
+    <Content Include="Scripts\resources\images\property\payment\broadband3x.png" />
+    <Content Include="Scripts\resources\images\property\payment\cableTVsmall3x.png" />
+    <Content Include="Scripts\resources\images\property\payment\broadbandsmall2x.png" />
+    <Content Include="Scripts\resources\images\property\payment\broadbandsmall3x.png" />
+    <Content Include="Scripts\resources\images\property\payment\cableTV2x.png" />
+    <Content Include="Scripts\resources\images\property\payment\cableTV3x.png" />
+    <Content Include="Scripts\resources\images\property\payment\cableTVsmall2x.png" />
+    <Content Include="Scripts\resources\images\property\payment\carpark2x.png" />
+    <Content Include="Scripts\resources\images\property\payment\carpark3x.png" />
+    <Content Include="Scripts\resources\images\property\payment\carparksmall.png" />
+    <Content Include="Scripts\resources\images\property\payment\carparksmall2x.png" />
+    <Content Include="Scripts\resources\images\property\payment\electricity2x.png" />
+    <Content Include="Scripts\resources\images\property\payment\electricity3x.png" />
+    <Content Include="Scripts\resources\images\property\payment\gas2x.png" />
+    <Content Include="Scripts\resources\images\property\payment\gas3x.png" />
+    <Content Include="Scripts\resources\images\property\payment\property2x.png" />
+    <Content Include="Scripts\resources\images\property\payment\property3x.png" />
+    <Content Include="Scripts\resources\images\property\payment\propertysmall2x.png" />
+    <Content Include="Scripts\resources\images\property\payment\propertysmall3x.png" />
+    <Content Include="Scripts\resources\images\save.png" />
+    <Content Include="Scripts\resources\images\set\Equipment.png" />
+    <Content Include="Scripts\resources\images\set\help.png" />
+    <Content Include="Scripts\resources\images\set\Labour.png" />
+    <Content Include="Scripts\resources\images\set\login.png" />
+    <Content Include="Scripts\resources\images\set\Material.png" />
+    <Content Include="Scripts\resources\images\middle_img.png" />
+    <Content Include="Scripts\resources\images\set\password.png" />
+    <Content Include="Scripts\resources\images\set\personal.png" />
+    <Content Include="Scripts\resources\images\set\question.png" />
+    <Content Include="Scripts\resources\images\set\search.png" />
+    <Content Include="Scripts\resources\images\set\Supplied.png" />
+    <Content Include="Scripts\resources\images\set\Turnover.png" />
+    <Content Include="Scripts\resources\images\set\version.png" />
+    <Content Include="Scripts\resources\images\Mall-1.png" />
+    <Content Include="Scripts\resources\images\top-1.png" />
+    <Content Include="Scripts\resources\startup\1496x2048.png" />
+    <Content Include="Scripts\resources\startup\1536x2008.png" />
+    <Content Include="Scripts\resources\startup\320x460.jpg" />
+    <Content Include="Scripts\resources\startup\320x460.png" />
+    <Content Include="Scripts\resources\startup\640x920.png" />
+    <Content Include="Scripts\resources\startup\748x1024.png" />
+    <Content Include="Scripts\resources\startup\768x1004.png" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Content\Site.css" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Home\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Quest.Core.Data\Quest.Core.Data.csproj">
+      <Project>{612a1959-bc52-4833-89b6-ac31186500f3}</Project>
+      <Name>Quest.Core.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Quest.Core.Models\Quest.Core.Models.csproj">
+      <Project>{4bbc306f-6961-4005-88a0-047b9ee7b8d9}</Project>
+      <Name>Quest.Core.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Quest.Core\Quest.Core.csproj">
+      <Project>{447aa939-980e-4155-97a6-926faf227225}</Project>
+      <Name>Quest.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Quest.Framework\Quest.Framework.csproj">
+      <Project>{f0120d9f-65e8-4539-966a-96e7818bd8e1}</Project>
+      <Name>Quest.Framework</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Scripts\QST\App\HRManagement\User\" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>6206</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:6206/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

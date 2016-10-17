@@ -1,0 +1,31 @@
+﻿{
+    "loginInfor": {
+        "Name": "",
+        "Pwd": "",
+        "Area": "10001003",
+        "DicData": {
+            "ParentId": "00000001-0000-0000-0000-000000000000",
+            "DictionName": "重庆",
+            "DictionKey": "10001001",
+            "DictionValue": "",
+            "Sequence": 3,
+            "DictionDesc": "",
+            "Id": "AB77BA02-8EAC-4FE9-B3BE-FFE3EBB4CA33",
+            "IsDeleted": false,
+            "CreatedTime": "2014-07-25T10:23:16.677",
+            "Timestamp": "AAAAAAAAHxE=",
+            "id": "extModel30-3"
+        }
+    },
+    "data": { },
+    "isPower": false, //是否拥有权限
+    "appName": "溯汇软件",
+    "appBaseUrl": "",
+    "aliasUrl": "",
+    "clickType": "window",
+    //"url": "BPM.WFForm.Layout"
+    //"url": "BPM.WFModel.Layout"
+    "url": "Main.Layout"
+    //"url": "BPM.WFTask.Layout"
+    //"url": "BPM.CDTable.Layout"
+}

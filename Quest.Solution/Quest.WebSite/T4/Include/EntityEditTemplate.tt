@@ -1,0 +1,109 @@
+﻿<#+
+// <copyright file="EntityEditTemplate.tt" company="溯汇软件@中国">
+//  Copyright © 溯汇软件@中国. All Rights Reserved.
+// </copyright>
+
+    public class EntityEditTemplate : CSharpTemplate
+    {       
+        public EntityEditTemplate(T4ModelInfo model){
+            this._model=model;
+        }
+
+       private T4ModelInfo _model; 
+        /// <summary>
+        /// 获取 生成的文件名，根据模型名定义
+        /// </summary>
+        public string FileName
+        {
+            get
+            { 
+                return string.Format("{0}.js", "Edit");
+            }
+        }
+
+        /// <summary>
+        /// 获取 Model命名空间，根据模型名定义
+        /// </summary>
+        public string Model_Namespace{get;set;}
+
+		public string getExtType(Type type){
+		
+            string retStr = "textfield";
+
+            switch (type.ToString())
+            {
+                case "System.String":
+                    retStr = "textfield";
+                    break;
+                case "System.Guid":
+                    retStr = "hiddenfield";
+                    break;
+                case "System.Double":
+                case "System.Int32":
+                    retStr = "numberfield";
+                    break;
+                case "System.Boolean":
+                    retStr = "radiofield";
+                    break;
+                case "System.Nullable`1[System.DateTime]":
+                case "System.DateTime":
+                    retStr = "datefield";
+                    break;
+            }
+            return retStr;
+		}
+
+        public override string TransformText()
+        {	
+#>
+/**-----------------------------------------------------------------
+* @explanation:<#= _model.Description #>信息编辑
+* @created：rainday
+* @create time：<#= DateTime.Now.ToString("yyyy-MM-dd HH:mm") #>
+* @modified history: //修改历史
+/-------------------------------------------------------------------*/
+
+/*
+* 数据表编辑页面
+*/
+Ext.define("<#=  _model.ModuleName#>.<#= _model.Name #>.Edit", {
+    extend: 'Ext.user.NEdit',
+	xtype: '<#= _model.ModuleName.ToLower()#>_<#= _model.Name.ToLower() #>_edit',
+    layout: 'fit',
+    modal: true,
+    onlySave: true,
+    layout: {
+        type: 'table',
+        columns: 1
+    },
+    closeAction: 'hide',
+    defaults: {
+        labelAlign: 'right',
+        width: 300
+    },
+    items: [
+<#+
+foreach(PropertyInfo pro in _model.Properties){
+	String strItems="";
+	string labelName=pro.Name;
+	Object[] obj = pro.GetCustomAttributes(typeof(DBColumnAttribute), true);
+	if (!obj.IsNullOrEmpty() && obj.Length > 0)
+	{
+		DBColumnAttribute ma = obj[0] as DBColumnAttribute;
+		labelName=ma.Desc;
+	}
+	
+		if(pro.PropertyType.ToString().IndexOf("System.DateTime")>-1){
+			strItems="{ xtype: '"+getExtType(pro.PropertyType)+"', fieldLabel: '"+labelName+"', name: '"+pro.Name+"', dateFormat: 'Y/m/d ', value: new Date()},";
+		}else{
+			strItems="{ xtype: '"+getExtType(pro.PropertyType)+"', fieldLabel: '"+labelName+"', name: '"+pro.Name+"'},";
+		}
+#>
+        <#=strItems#>
+<#+
+}
+#>    ]
+});
+<#+ return this.GenerationEnvironment.ToString();
+        }
+    }#>

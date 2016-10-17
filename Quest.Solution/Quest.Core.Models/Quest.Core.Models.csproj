@@ -1,0 +1,131 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{4BBC306F-6961-4005-88A0-047B9EE7B8D9}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Quest.Core.Models</RootNamespace>
+    <AssemblyName>Quest.Core.Models</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net40\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net40\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Maps\Property\PAccountConfiguration.cs" />
+    <Compile Include="Property\PAccount.cs" />
+    <Compile Include="Users\Address.cs" />
+    <Compile Include="Base\Dictionary.cs" />
+    <Compile Include="Base\Menu.cs" />
+    <Compile Include="BPM\CDList.cs" />
+    <Compile Include="BPM\WFForm.cs" />
+    <Compile Include="BPM\WFInfo.cs" />
+    <Compile Include="BPM\WFModel .cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="BPM\WFRunStep.cs" />
+    <Compile Include="BPM\WFRunInstance.cs" />
+    <Compile Include="BPM\WFTask.cs" />
+    <Compile Include="BPM\CDColumn.cs" />
+    <Compile Include="BPM\CDController.cs" />
+    <Compile Include="Maps\Base\AddressConfiguration.cs" />
+    <Compile Include="Maps\Property\CommunityConfiguration.cs" />
+    <Compile Include="Maps\Property\ComplaintsConfiguration.cs" />
+    <Compile Include="Maps\Property\PaymentConfiguration.cs" />
+    <Compile Include="Maps\Property\NewsPaperConfiguration.cs" />
+    <Compile Include="Property\Community.cs" />
+    <Compile Include="Maps\HouseManage\HousekeepingConfiguration.cs" />
+    <Compile Include="Property\Complaints.cs" />
+    <Compile Include="Maps\Base\MenuConfiguration.cs" />
+    <Compile Include="Maps\Base\DictionaryConfiguration.cs" />
+    <Compile Include="Maps\Base\RoleConfiguration.cs" />
+    <Compile Include="Maps\BPM\CDListConfiguration.cs" />
+    <Compile Include="Maps\BPM\WFRunInstanceConfiguration.cs" />
+    <Compile Include="Maps\BPM\WFFormConfiguration.cs" />
+    <Compile Include="Maps\BPM\WFTaskConfiguration.cs" />
+    <Compile Include="Maps\BPM\WFRunStepConfiguration.cs" />
+    <Compile Include="Maps\BPM\WFModelConfiguration.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Maps\BPM\CDColumnConfiguration.cs" />
+    <Compile Include="Maps\BPM\CDTableConfiguration.cs" />
+    <Compile Include="Maps\Base\UserConfiguration.cs" />
+    <Compile Include="Base\Role.cs" />
+    <Compile Include="BPM\CDTable.cs" />
+    <Compile Include="Base\User.cs" />
+    <Compile Include="Maps\BPM\CDControllerConfiguration.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="HouseManage\Housekeeping.cs" />
+    <Compile Include="Property\NewsPaper.cs" />
+    <Compile Include="Property\Payment.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Compiler\" />
+    <Folder Include="Mall\" />
+    <Folder Include="Maps\Compiler\" />
+    <Folder Include="PropertyManageCenter\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Quest.Framework\Quest.Framework.csproj">
+      <Project>{f0120d9f-65e8-4539-966a-96e7818bd8e1}</Project>
+      <Name>Quest.Framework</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

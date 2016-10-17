@@ -1,0 +1,128 @@
+﻿<#+
+// <copyright file="EntityControllerTemplate.tt" company="溯汇软件@中国">
+//  Copyright © 溯汇软件@中国. All Rights Reserved.
+// </copyright>
+
+    public class EntityControllerTemplate : CSharpTemplate
+    {       
+        public EntityControllerTemplate(T4ModelInfo model){
+            this._model=model;
+        }
+
+        private T4ModelInfo _model; 
+        /// <summary>
+        /// 获取 生成的文件名，根据模型名定义
+        /// </summary>
+        public string FileName
+        {
+            get
+            { 
+                return string.Format("{0}Controller.cs", _model.Name);
+            }
+        }
+
+        /// <summary>
+        /// 获取 Model命名空间，根据模型名定义
+        /// </summary>
+        public string Model_Namespace{get;set;}
+
+        public override string TransformText()
+        {
+#>
+//------------------------------------------------------------------------------
+// <copyright file="I<#= _model.Name #>Service.cs">
+//        Copyright(c)2013 QuestCN.All rights reserved.
+//        CLR版本：4.0.30319.239
+//        开发组织：溯汇软件@中国
+//        公司网站：http://www.cnsuhui.com
+//        所属工程：Quest.Core
+//        生成时间：<#= DateTime.Now.ToString("yyyy-MM-dd HH:mm") #>
+// </copyright>
+//------------------------------------------------------------------------------
+
+using System;
+using System.Linq;
+using System.Web.Mvc;
+using System.ComponentModel.Composition;
+using System.Collections.Generic;
+using Quest.Core;
+using Quest.Framework;
+using Quest.Framework.MVC;
+using <#= Model_Namespace #>;
+using Quest.Core.<#=  _model.ModuleName#>;
+
+namespace Quest.WebSite.Controllers.<#=  _model.ModuleName#>
+{
+	/// <summary>
+    /// <#= _model.Description #> 控制层
+    /// </summary>
+    [Export]
+    public partial class <#= _model.Name #>Controller : BaseController
+    {
+        #region 属性
+
+        /// <summary>
+        /// 获取或设置 <#= _model.Description #>数据访问对象
+        /// </summary>
+        [Import]
+        public I<#= _model.Name #>Service <#= _model.Name #>Service { get; set; }
+        
+        #endregion
+
+        #region 视图功能
+
+        public ActionResult Index()
+        {
+            return View();
+        }
+
+        /// <summary>
+        /// 添加 <#= _model.Description #>数据
+        /// </summary>
+        /// <param name="entity"><#= _model.Description #>对象</param>
+        /// <returns>返回操作结果</returns>
+        [HttpPost]
+        [ValidateInput(false)]
+        [Feature("添加","icon_add")]
+        public virtual ActionResult Add(<#= _model.Name #> entity)
+        {
+            OperationResult or = <#= _model.Name #>Service.Insert(entity);
+            return this.JsonFormat(or);
+        }
+
+        /// <summary>
+        /// 修改 <#= _model.Description #>数据
+        /// </summary>
+        /// <param name="entity"><#= _model.Description #>对象</param>
+        /// <returns>返回操作结果</returns>
+        [HttpPost]
+        [ValidateInput(false)]
+        [Feature("修改","icon_edit")]
+        public virtual ActionResult Update(<#= _model.Name #> entity)
+        {
+            entity.LastUpdatedTime = DateTime.Now;
+            OperationResult or = <#= _model.Name #>Service.Update(entity);
+            return this.JsonFormat(or);
+        }
+
+        /// <summary>
+        /// 删除 <#= _model.Description #>数据 
+        /// 根据<#= _model.Description #>唯一标识Id集合,数据格式','隔开“1,2,3,4...”
+        /// </summary>
+        /// <returns>返回操作结果</returns>
+        [Feature("删除","icon_delete")]
+        public virtual ActionResult Delete()
+        {
+            IList<Guid> ids = QuestRequest.GetGuids("ids");
+            OperationResult or = <#= _model.Name #>Service.Delete(c => ids.Contains(c.Id));
+            return this.JsonFormat(or);
+        }
+
+        #endregion
+    }
+}
+<#+
+            return this.GenerationEnvironment.ToString();
+        }
+    }
+#>

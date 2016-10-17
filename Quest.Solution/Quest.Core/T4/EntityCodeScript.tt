@@ -1,0 +1,57 @@
+﻿<#@ template language="C#" debug="True" #>
+<#@ output extension="cs" #>
+<#@ Assembly Name="System.Core" #>
+<#@ Assembly Name="$(SolutionDir)\Quest.Framework\bin\Debug\Quest.Framework.dll" #>
+<#@ import namespace="System.IO" #>
+<#@ Import Namespace="System.Linq" #>
+<#@ Import Namespace="System.Text" #>
+<#@ import namespace="System.Reflection" #>
+<#@ Import Namespace="System.Collections.Generic" #>
+<#@ Import Namespace="Quest.Framework" #>
+<#@ Import Namespace="Quest.Framework.T4" #>
+<#@ include file="T4Toolbox.tt" #>
+<#@ include file="Include\IEntityServiceTemplate.tt" #>
+<#@ include file="Include\EntityServiceTemplate.tt" #>
+
+<#
+    string currentPath = Path.GetDirectoryName(Host.TemplateFile);
+    string projectPath =currentPath.Substring(0, currentPath.IndexOf(@"\T4"));
+    string solutionPath = currentPath.Substring(0, currentPath.IndexOf(@"\Quest.Core"));
+
+    string modelFile= Path.Combine(solutionPath, @"Quest.Core.Models\bin\Debug\Quest.Core.Models.dll");
+    byte[] fileData= File.ReadAllBytes(modelFile);
+    Assembly assembly = Assembly.Load(fileData);
+    Type dbT = typeof(DBTableAttribute);
+    Type dbV = typeof(DBViewAttribute);
+    Type[] modelTypes = assembly.GetTypes().Where(m => m.GetCustomAttributes(dbT,true).Length>0 || m.GetCustomAttributes(dbV,true).Length>0).ToArray();
+    
+    foreach(Type modelType in modelTypes)
+    {
+        bool isTable=true;
+        var modelA=modelType.GetCustomAttributes(dbT,true);   
+        var bs= modelType.BaseType.GetCustomAttributes(dbT,true);   
+        if(modelA.Length==0||bs.Length>0){
+            isTable=false;
+        }
+        T4ModelInfo model = new T4ModelInfo(modelType,isTable, true);
+        string modulename=model.ModuleName=="Models"?"":model.ModuleName;
+        
+        // 核心业务操作接口
+        IEntityServiceTemplate iest=new IEntityServiceTemplate(model);
+        iest.Model_Namespace=modelType.Namespace;
+        var path=model.UseModuleDir
+            ?string.Format(@"{0}\{1}",projectPath,modulename)
+            :string.Format(@"{0}\", projectPath);
+        iest.Output.Encoding = Encoding.UTF8;
+        iest.RenderToFile(Path.Combine(path, iest.FileName));
+
+        // 核心业务操作实现类
+        EntityServiceTemplate est=new EntityServiceTemplate(model);
+        est.Model_Namespace=modelType.Namespace;
+        path=model.UseModuleDir
+            ?string.Format(@"{0}\{1}\Impl\",projectPath,modulename)
+            :string.Format(@"{0}\", projectPath);
+        est.Output.Encoding = Encoding.UTF8;
+        est.RenderToFile(Path.Combine(path, est.FileName));
+    }
+#>

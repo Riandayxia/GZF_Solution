@@ -1,0 +1,49 @@
+﻿<#+
+// <copyright file="EntityLayoutTemplate.tt" company="溯汇软件@中国">
+//  Copyright © 溯汇软件@中国. All Rights Reserved.
+// </copyright>
+
+    public class EntityLayoutTemplate : CSharpTemplate
+    {       
+        public EntityLayoutTemplate(T4ModelInfo model){
+            this._model=model;
+        }
+
+        private T4ModelInfo _model; 
+        /// <summary>
+        /// 获取 生成的文件名，根据模型名定义
+        /// </summary>
+        public string FileName
+        {
+            get
+            { 
+                return string.Format("{0}.js", "Layout");
+            }
+        }
+
+        /// <summary>
+        /// 获取 Model命名空间，根据模型名定义
+        /// </summary>
+        public string Model_Namespace{get;set;}
+
+        public override string TransformText()
+        {
+#>
+/**-----------------------------------------------------------------
+* @explanation:<#= _model.Description #>布局
+* @created：rainday
+* @create time：<#= DateTime.Now.ToString("yyyy-MM-dd HH:mm") #>
+* @modified history: //修改历史
+/-------------------------------------------------------------------*/
+
+Ext.define('<#=  _model.ModuleName#>.<#= _model.Name #>.Layout', {
+    extend: '<#=  _model.ModuleName#>.<#= _model.Name #>.Grid',
+    xtype: '<#= _model.ModuleName.ToLower()#>_<#= _model.Name.ToLower() #>_layout',
+    fullscreen: true,
+    layout: "fit",
+    al: true,
+    html: "Perfect medium..."
+});
+<#+ return this.GenerationEnvironment.ToString();
+        }
+}#>

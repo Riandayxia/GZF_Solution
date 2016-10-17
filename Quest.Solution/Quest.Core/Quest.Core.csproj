@@ -1,0 +1,225 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{447AA939-980E-4155-97A6-926FAF227225}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Quest.Core</RootNamespace>
+    <AssemblyName>Quest.Core</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\EntityFramework.6.1.2\lib\net40\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.2\lib\net40\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.Types, Version=10.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Libs\EF\Microsoft.SqlServer.Types.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Activities" />
+    <Reference Include="System.Activities.DurableInstancing" />
+    <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.DurableInstancing" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Property\Impl\PAccountService.cs" />
+    <Compile Include="Property\IPAccountService.cs" />
+    <Compile Include="Users\Extensions\IAddressService.cs" />
+    <Compile Include="Users\Extensions\Impl\AddressService.cs" />
+    <Compile Include="Users\IAddressService.cs" />
+    <Compile Include="Base\Extensions\IMenuService.cs" />
+    <Compile Include="Base\Extensions\Impl\MenuService.cs" />
+    <Compile Include="Base\Extensions\Impl\UserService.cs" />
+    <Compile Include="Base\Extensions\IUserService.cs" />
+    <Compile Include="Base\IDictionaryService.cs" />
+    <Compile Include="Base\IMenuService.cs" />
+    <Compile Include="Users\Impl\AddressService.cs" />
+    <Compile Include="Base\Impl\DictionaryService.cs" />
+    <Compile Include="Base\Impl\MenuService.cs" />
+    <Compile Include="Base\Impl\RoleService.cs" />
+    <Compile Include="Base\Impl\UserService.cs" />
+    <Compile Include="Base\IRoleService.cs" />
+    <Compile Include="Base\IUserService.cs" />
+    <Compile Include="BPM\Extensions\Impl\WFRunInstanceService.cs" />
+    <Compile Include="BPM\Extensions\IWFRunInstanceService.cs" />
+    <Compile Include="BPM\ICDColumnService.cs" />
+    <Compile Include="BPM\ICDControllerService.cs" />
+    <Compile Include="BPM\ICDListService.cs" />
+    <Compile Include="BPM\ICDTableService.cs" />
+    <Compile Include="BPM\Impl\CDColumnService.cs" />
+    <Compile Include="BPM\Impl\CDControllerService.cs" />
+    <Compile Include="BPM\Impl\CDListService.cs" />
+    <Compile Include="BPM\Impl\CDTableService.cs" />
+    <Compile Include="BPM\Impl\WFFormService.cs" />
+    <Compile Include="BPM\Impl\WFModelService.cs" />
+    <Compile Include="BPM\Impl\WFRunInstanceService.cs" />
+    <Compile Include="BPM\Impl\WFRunStepService.cs" />
+    <Compile Include="BPM\Impl\WFTaskService.cs" />
+    <Compile Include="BPM\IWFFormService.cs" />
+    <Compile Include="BPM\IWFModelService.cs" />
+    <Compile Include="BPM\IWFRunInstanceService.cs" />
+    <Compile Include="BPM\IWFRunStepService.cs" />
+    <Compile Include="BPM\IWFTaskService.cs" />
+    <Compile Include="CoreInitializer.cs" />
+    <Compile Include="HouseManage\Extensions\IHousekeepingService.cs" />
+    <Compile Include="HouseManage\Extensions\Imp\HousekeepingService.cs" />
+    <Compile Include="HouseManage\IHousekeepingService.cs" />
+    <Compile Include="HouseManage\Impl\HousekeepingService.cs" />
+    <Compile Include="Impl\MsSqlProvider.cs" />
+    <Compile Include="Initialize\BasicDataInitializer.cs" />
+    <Compile Include="Initialize\ContentInitializer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Process\WorkflowApplication.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Property\Extensions\ICommunityService.cs" />
+    <Compile Include="Property\Extensions\Impl\CommunityService.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Property\Extensions\Impl\NewsPaperService.cs" />
+    <Compile Include="Property\Extensions\INewsPaperService.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Property\ICommunityService.cs" />
+    <Compile Include="Property\IComplaintsService.cs" />
+    <Compile Include="Property\Impl\CommunityService.cs" />
+    <Compile Include="Property\Impl\ComplaintsService.cs" />
+    <Compile Include="Property\Impl\PaymentService.cs" />
+    <Compile Include="Property\Impl\NewsPaperService.cs" />
+    <Compile Include="Property\IPaymentService.cs" />
+    <Compile Include="Property\INewsPaperService.cs" />
+    <Compile Include="SourceOperating.cs" />
+    <Compile Include="T4\EntityCodeScript1.cs">
+      <DependentUpon>EntityCodeScript.tt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="T4\Include\EntityServiceTemplate.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EntityServiceTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="T4\Include\IEntityServiceTemplate.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>IEntityServiceTemplate.tt</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+    <None Include="T4\EntityCodeScript.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>EntityCodeScript1.cs</LastGenOutput>
+      <LastOutputs>
+..\Base\IDictionaryService.cs
+..\Base\IMenuService.cs
+..\Base\Impl\DictionaryService.cs
+..\Base\Impl\MenuService.cs
+..\Base\Impl\RoleService.cs
+..\Base\Impl\UserService.cs
+..\Base\IRoleService.cs
+..\Base\IUserService.cs
+..\BPM\ICDColumnService.cs
+..\BPM\ICDControllerService.cs
+..\BPM\ICDListService.cs
+..\BPM\ICDTableService.cs
+..\BPM\Impl\CDColumnService.cs
+..\BPM\Impl\CDControllerService.cs
+..\BPM\Impl\CDListService.cs
+..\BPM\Impl\CDTableService.cs
+..\BPM\Impl\WFFormService.cs
+..\BPM\Impl\WFModelService.cs
+..\BPM\Impl\WFRunInstanceService.cs
+..\BPM\Impl\WFRunStepService.cs
+..\BPM\Impl\WFTaskService.cs
+..\BPM\IWFFormService.cs
+..\BPM\IWFModelService.cs
+..\BPM\IWFRunInstanceService.cs
+..\BPM\IWFRunStepService.cs
+..\BPM\IWFTaskService.cs
+..\Property\IComplaintsService.cs
+..\Property\Impl\ComplaintsService.cs
+..\Property\Impl\NewsPaperService.cs
+..\Property\INewsPaperService.cs
+.\EntityCodeScript1.cs
+</LastOutputs>
+    </None>
+    <None Include="T4\Include\EntityServiceTemplate.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>EntityServiceTemplate.cs</LastGenOutput>
+    </None>
+    <None Include="T4\Include\IEntityServiceTemplate.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>IEntityServiceTemplate.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Quest.Core.Data\Quest.Core.Data.csproj">
+      <Project>{612a1959-bc52-4833-89b6-ac31186500f3}</Project>
+      <Name>Quest.Core.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Quest.Core.Models\Quest.Core.Models.csproj">
+      <Project>{4bbc306f-6961-4005-88a0-047b9ee7b8d9}</Project>
+      <Name>Quest.Core.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Quest.Framework\Quest.Framework.csproj">
+      <Project>{f0120d9f-65e8-4539-966a-96e7818bd8e1}</Project>
+      <Name>Quest.Framework</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,75 @@
+﻿<#+
+    // <copyright file="EntityServiceTemplate.tt" company="">
+    //  Copyright © . All Rights Reserved.
+    // </copyright>
+
+    public class EntityServiceTemplate : CSharpTemplate
+    {       
+        public EntityServiceTemplate(T4ModelInfo model){
+            this._model=model;
+        }
+
+        private T4ModelInfo _model; 
+        /// <summary>
+        /// 获取 生成的文件名，根据模型名定义
+        /// </summary>
+        public string FileName
+        {
+            get
+            { 
+                return string.Format("{0}Service.cs", _model.Name);
+            }
+        }
+
+        /// <summary>
+        /// 获取 Model命名空间，根据模型名定义
+        /// </summary>
+        public string Model_Namespace{get;set;}
+
+        public override string TransformText()
+        {
+            base.TransformText();
+#>
+//------------------------------------------------------------------------------
+// <copyright file="I<#= _model.Name #>Service.cs">
+//        Copyright(c)2013 QuestCN.All rights reserved.
+//        CLR版本：4.0.30319.239
+//        开发组织：溯汇软件@中国
+//        公司网站：http://www.cnsuhui.com
+//        所属工程：Quest.Core
+//        生成时间：<#= DateTime.Now.ToString("yyyy-MM-dd HH:mm") #>
+// </copyright>
+//------------------------------------------------------------------------------
+
+
+using System;
+using System.ComponentModel.Composition;
+using Quest.Core.Data;
+using <#= Model_Namespace #>;
+
+namespace Quest.Core.<#=  _model.ModuleName#>.Impl
+{
+	/// <summary>
+    /// <#= _model.Description #> 核心业务契约
+    /// </summary>
+    [Export(typeof(I<#= _model.Name #>Service))]
+    internal partial class <#= _model.Name #>Service :RepositoryBase<<#= _model.Name #>,Guid>, I<#= _model.Name #>Service
+    {
+        #region 公共属性
+
+        #endregion
+
+        #region 公共方法
+
+        #endregion
+
+        #region 私有方法
+
+        #endregion
+    }
+}
+<#+
+            return this.GenerationEnvironment.ToString();
+        }
+    }
+#>
