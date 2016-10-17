@@ -23,22 +23,22 @@ Ext.define('QST.Mall.Menu', {
             {
                 items: [{
                     text: '数码电器',
-                    iconCls: 'htgl',
+                    iconCls: 'xiyiji',
                     handler: function (but) {
                     }
                 }, {
                     text: '精品水果',
-                    iconCls: 'htgl',
+                    iconCls: 'shuiguo',
                     handler: function (but) {
                     }
                 }, {
                     text: '食品生鲜',
-                    iconCls: 'htgl',
+                    iconCls: 'shengxian',
                     handler: function (but) {
                     }
                 }, {
                     text: '日用百货',
-                    iconCls: 'htgl',
+                    iconCls: 'zhijin',
                     handler: function (but) {
                     }
                 }]

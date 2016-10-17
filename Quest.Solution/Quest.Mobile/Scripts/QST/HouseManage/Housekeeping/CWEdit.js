@@ -34,7 +34,7 @@ Ext.define('QST.HouseManage.Housekeeping.CWEdit', {
             defaults: { flex: 1 },
             items: [
                 {
-                    html: '同意<a href="www.baidu.com"><span class="dl">' + config.str.Houseprotocol + '</span></a>',
+                    html: '同意<span class="dl", style="color: #00BBFF ">' + config.str.Houseprotocol + '</span>',
                     style: {
                         'font-size': '1.4em;',
                         'text-align': 'left',

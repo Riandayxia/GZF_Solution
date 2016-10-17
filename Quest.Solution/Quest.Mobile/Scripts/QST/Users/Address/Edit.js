@@ -22,7 +22,7 @@ Ext.define('QST.Users.Address.Edit', {
                 { label: '联系电话', name: 'Mobile', placeHolder: '请输入电话号码（必填）', xtype: 'numberfield', matcher: /^1[3|4|5|8][0-9]{9}$/, message: '手机号码格式错误！', allowBlank: true },
                 { label: '所在小区', name: 'TheCell', xtype: 'textfield', allowBlank: true, placeHolder: '请填写所在小区（必填）' },
                 { label: '详细地址', name: 'DetailedAddress', xtype: 'textareafield', allowBlank: true, placeHolder: '请填写详细地址（必填）' },
-                { label: '设为默认地址', name: 'IsDefault', xtype: 'togglefield',  value: '1' },
+                { label: '设为默认地址', name: 'IsDefault', xtype: 'togglefield', value: '0' },
                 { label: '是否删除', name: 'IsDeleted', xtype: 'hiddenfield' },
                 { label: '创建时间', name: 'CreatedTime', xtype: 'hiddenfield' },
                 { label: '修改时间', name: 'LastUpdatedTime', xtype: 'hiddenfield' },

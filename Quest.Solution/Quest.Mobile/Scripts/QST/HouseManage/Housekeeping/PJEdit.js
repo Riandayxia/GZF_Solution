@@ -17,9 +17,9 @@ Ext.define('QST.HouseManage.Housekeeping.PJEdit', {
             items: [
                 { label: '唯一标识', name: 'Id', xtype: 'hiddenfield' },
                 { label: '联系人', name: 'Contacts', xtype: 'textfield', allowBlank: true, placeHolder: '请填写联系人' },
-                { label: '联系电话', name: 'Phone', xtype: 'textfield', matcher: /^1[3|4|5|8][0-9]{9}$/, message: '手机号码格式错误！', placeHolder: '请填写联系电话', allowBlank: true  },
+                { label: '联系电话', name: 'Phone', xtype: 'textfield', matcher: /^1[3|4|5|8][0-9]{9}$/, message: '手机号码格式错误！', placeHolder: '请填写联系电话', allowBlank: true },
                 { label: '服务地址', name: 'Address', xtype: 'textareafield', placeHolder: '请填写服务地址', allowBlank: true },
-                { label: '服务价格', name: 'ServicePrice', xtype: 'textfield', value:'25元/小时起' ,readOnly:true},
+                { label: '服务价格', name: 'ServicePrice', xtype: 'textfield', value: '25元/小时起', readOnly: true },
                 { label: '服务类型', name: 'Type', xtype: 'hiddenfield', value: "10002001" },
                 { label: '服务时长', name: 'Duration', xtype: 'textfield', placeHolder: '请选择服务时长', allowBlank: true },
                 { label: '特殊要求', name: 'Content', xtype: 'textareafield', placeHolder: '告诉我们' },
@@ -28,22 +28,22 @@ Ext.define('QST.HouseManage.Housekeeping.PJEdit', {
                 { label: '修改时间', name: 'LastUpdatedTime', xtype: 'hiddenfield' },
             ]
         }, {
-            
-                xtype: 'panel',
-                layout: 'hbox',
-                defaults: { flex: 1 },
-                items: [
-                    {
-                        html: '同意<a href="www.baidu.com"><span class="dl">' + config.str.Houseprotocol + '</span></a>',
-                        style: {
-                            'font-size': '1.4em;',
-                            'text-align': 'left',
-                            'margin': '10px 10px 5px 20px',
-                            'color': ' #666',
-                        }
+
+            xtype: 'panel',
+            layout: 'hbox',
+            defaults: { flex: 1 },
+            items: [
+                {
+                    html: '同意<span class="dl", style="color: #00BBFF ">' + config.str.Houseprotocol + '</span>',
+                    style: {
+                        'font-size': '1.4em;',
+                        'text-align': 'left',
+                        'margin': '10px 10px 5px 20px',
+                        'color': ' #666',
                     }
-                ]
-            
+                }
+            ]
+
         }],
         listeners: {
             //返回前一界面

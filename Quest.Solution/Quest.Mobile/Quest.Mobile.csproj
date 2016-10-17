@@ -154,6 +154,8 @@
     <Compile Include="Controllers\Property\PaymentController.cs" />
     <Compile Include="Controllers\Property\NewsPaperController.cs" />
     <Compile Include="Controllers\Property\ComplaintsController.cs" />
+    <Compile Include="Controllers\Users\AddressController.cs" />
+    <Compile Include="Controllers\Users\Auto\AddressController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -223,6 +225,10 @@
     <Content Include="Scripts\cordova.js" />
     <Content Include="Scripts\cordova_plugins.js" />
     <Content Include="Scripts\index.html" />
+    <Content Include="Scripts\QST\HouseManage\Housekeeping\HouseBottom.js" />
+    <Content Include="Scripts\QST\HouseManage\Housekeeping\HouseList.js" />
+    <Content Include="Scripts\QST\HouseManage\Housekeeping\HouseMiddleImg.js" />
+    <Content Include="Scripts\QST\HouseManage\Housekeeping\PAEdit.js" />
     <Content Include="Scripts\QST\Property\Complaints\Details.js" />
     <Content Include="Scripts\QST\Property\Convenience\Layout.js" />
     <Content Include="Scripts\QST\Property\Convenience\List.js" />
@@ -277,6 +283,10 @@
     <Content Include="Scripts\QST\Property\Payment\Hlist.js" />
     <Content Include="Scripts\QST\Property\Payment\List.js" />
     <Content Include="Scripts\QST\Property\Payment\Layout.js" />
+    <Content Include="Scripts\QST\Users\Address\Details.js" />
+    <Content Include="Scripts\QST\Users\Address\Edit.js" />
+    <Content Include="Scripts\QST\Users\Address\List.js" />
+    <Content Include="Scripts\QST\Users\Address\MyAccount.js" />
     <Content Include="Scripts\QST\Util.js" />
     <Content Include="Scripts\resources\css\app.css" />
     <Content Include="Scripts\resources\css\main.css" />
@@ -356,7 +366,19 @@
     <Content Include="Scripts\resources\images\Guide1.png" />
     <Content Include="Scripts\resources\images\Guide2.png" />
     <Content Include="Scripts\resources\images\Guide3.png" />
+    <Content Include="Scripts\resources\images\HouseManage\Housekeeping\banner%403x.png" />
+    <Content Include="Scripts\resources\images\HouseManage\Housekeeping\hugong%402x.png" />
+    <Content Include="Scripts\resources\images\HouseManage\Housekeeping\yuersao%402x.png" />
+    <Content Include="Scripts\resources\images\HouseManage\Housekeeping\yuesao%402x.png" />
+    <Content Include="Scripts\resources\images\HouseManage\Housekeeping\zhongdiangong%402x.png" />
+    <Content Include="Scripts\resources\images\HouseManage\Housekeeping\zhujiaayi%402x.png" />
     <Content Include="Scripts\resources\images\main\convenience2x.png" />
+    <Content Include="Scripts\resources\images\main\logo%403x.png" />
+    <Content Include="Scripts\resources\images\main\QQ%402x.png" />
+    <Content Include="Scripts\resources\images\main\shengxian%402x.png" />
+    <Content Include="Scripts\resources\images\main\shuiguo%402x.png" />
+    <Content Include="Scripts\resources\images\main\weibo%402x.png" />
+    <Content Include="Scripts\resources\images\main\weixin%402x.png" />
     <Content Include="Scripts\resources\images\main\wyf2x.png" />
     <Content Include="Scripts\resources\images\main\service2x.png" />
     <Content Include="Scripts\resources\images\main\information2x.png" />
@@ -365,10 +387,17 @@
     <Content Include="Scripts\resources\images\main\housekeeping2x.png" />
     <Content Include="Scripts\resources\images\main\mall2x.png" />
     <Content Include="Scripts\resources\images\main\speaker2x.png" />
+    <Content Include="Scripts\resources\images\main\xiyiji%402x.png" />
+    <Content Include="Scripts\resources\images\main\zhijin%402x.png" />
     <Content Include="Scripts\resources\images\mallTop.png" />
     <Content Include="Scripts\resources\images\middle_img_2.png" />
     <Content Include="Scripts\resources\images\middle_img_3.png" />
     <Content Include="Scripts\resources\images\ok.png" />
+    <Content Include="Scripts\resources\images\Personal\daifahuo%402x.png" />
+    <Content Include="Scripts\resources\images\Personal\daifukuan%402x.png" />
+    <Content Include="Scripts\resources\images\Personal\daipingjia%402x.png" />
+    <Content Include="Scripts\resources\images\Personal\daishouhuo%402x.png" />
+    <Content Include="Scripts\resources\images\Personal\tuikuanshouhou%402x.png" />
     <Content Include="Scripts\resources\images\personal_top.png" />
     <Content Include="Scripts\resources\images\property\convenience\government2x.png" />
     <Content Include="Scripts\resources\images\property\convenience\government3x.png" />
@@ -426,6 +455,10 @@
     <Content Include="Scripts\resources\images\set\version.png" />
     <Content Include="Scripts\resources\images\Mall-1.png" />
     <Content Include="Scripts\resources\images\top-1.png" />
+    <Content Include="Scripts\resources\images\Users\Address\laji%402x.png" />
+    <Content Include="Scripts\resources\images\Users\Address\touxiangda%402x.png" />
+    <Content Include="Scripts\resources\images\Users\Address\weigouxuan%402x.png" />
+    <Content Include="Scripts\resources\images\Users\Address\yigouxuan%402x.png" />
     <Content Include="Scripts\resources\startup\1496x2048.png" />
     <Content Include="Scripts\resources\startup\1536x2008.png" />
     <Content Include="Scripts\resources\startup\320x460.jpg" />
@@ -433,7 +466,9 @@
     <Content Include="Scripts\resources\startup\640x920.png" />
     <Content Include="Scripts\resources\startup\748x1024.png" />
     <Content Include="Scripts\resources\startup\768x1004.png" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>

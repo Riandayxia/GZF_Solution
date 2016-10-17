@@ -35,7 +35,11 @@ Ext.define('QST.Main.HomeMenu', {
                     }
                 }, {
                     text: '家政服务',
-                    iconCls: 'housekeeping'
+                    iconCls: 'housekeeping',
+
+                    handler: function (but) {
+                        util.redirectTo("QST.HouseManage.Housekeeping.HouseList", "", { parentUrl: "QST.Main.Layout" });
+                    }
                 },{
                     text: '社区活动',
                     iconCls: 'information',

@@ -50,12 +50,12 @@ Ext.define("QST.Main.Registered", {
                              }, {
                                  xtype: 'button',
                                  text: '获取验证码',
-                                 cls: 'vEditButton',
+                                 cls: 'loginButton',
                                  style: 'font-size:0.8em',
-                                 height: '35px',
+                                 height: '40px',
                                  width: '80px',
                                  handler: function (but) {
-                                    //事件
+                                     //事件
                                  }
                              }
                          ]
@@ -82,7 +82,7 @@ Ext.define("QST.Main.Registered", {
             action: 'login',
             cls: 'loginButton',
             style: 'font-size:1.4em;',
-            height: '40px',
+            height: '60px',
             margin: '30 20 0 20',
             handler: function (but) {
                 var me = this.up('main_registered');
@@ -97,9 +97,9 @@ Ext.define("QST.Main.Registered", {
             },
             items: [
                 {
-                    html: '<span class="dl">' + '已有帐号？' + config.str.loginTitle + '</span>',
+                    html: '已有帐号？<span class="dl", style="color: #00BBFF ">' + config.str.loginTitle + '</span>',
                     style: {
-                        'font-size':'1.4em;',
+                        'font-size': '1.4em;',
                         'text-align': 'center',
                         'margin': '20px 10px 0 20px',
                         'color': ' #666',
@@ -119,21 +119,37 @@ Ext.define("QST.Main.Registered", {
              xtype: 'panel',
              layout: 'hbox',
              defaults: {
-                 flex: 1
+                 flex: 1,
              },
              items: [
+
                  {
                      xtype: 'checkboxfield',
                      name: 'Protocol',
                      margin: '250 0 0 0',
+                     //html: '<img class="rad" src="resources/images/Users/Address/yigouxuan@2x.png" width="20%" height="20%"> ',
+                     //style: {
+                     //    'font-size': '1.4em;',
+                     //    'text-align': 'center',
+                     //    'margin': '20px 10px 0 20px',
+                     //    'color': ' #666',
+                     //},
+                     //listeners: [{
+                     //    event: 'tap',
+                     //    fn: function () {
+                     //        util.redirectTo("QST.Main.Login");
+                     //    },
+                     //    element: 'innerElement',
+                     //    delegate: 'img.rad'
+                     //}],
                      checked: true,
                  }, {
-                     html: '<span class="dl">已同意并阅读注册协议</span>',
+                     html: '<div style="width:300px;">已同意并阅读<span class="dl", style="color: #00BBFF ">《注册协议》</span></div>',
                      style: {
                          'font-size': '1.4em;',
                          'text-align': 'left',
-                         'margin': '255px 110px 0 0',
-                         'color': ' #666',
+                         'margin': '255px 150px 0 0',
+                         'color': ' #666'
                      },
                      listeners: [{
                          event: 'tap',
@@ -230,10 +246,10 @@ Ext.define("QST.Main.Registered", {
     rendering: function (params) {
         if (params) {
             this.backUrl = params.parentUrl;
-        } 
+        }
         if (params.url) {
             //this.setSubUrl(params.url);
-        } 
+        }
     },
     //头部菜单信息(private)
     getHeader: function () {

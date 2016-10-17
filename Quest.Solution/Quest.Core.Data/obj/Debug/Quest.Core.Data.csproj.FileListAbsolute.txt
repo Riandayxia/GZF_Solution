@@ -1,0 +1,13 @@
+F:\薛帅\Quest.Solution\Quest.Solution\Quest.Core.Data\bin\Debug\Quest.Core.Data.dll
+F:\薛帅\Quest.Solution\Quest.Solution\Quest.Core.Data\bin\Debug\Quest.Core.Data.pdb
+F:\薛帅\Quest.Solution\Quest.Solution\Quest.Core.Data\bin\Debug\EntityFramework.dll
+F:\薛帅\Quest.Solution\Quest.Solution\Quest.Core.Data\bin\Debug\EntityFramework.SqlServer.dll
+F:\薛帅\Quest.Solution\Quest.Solution\Quest.Core.Data\bin\Debug\Quest.Framework.dll
+F:\薛帅\Quest.Solution\Quest.Solution\Quest.Core.Data\bin\Debug\Newtonsoft.Json.dll
+F:\薛帅\Quest.Solution\Quest.Solution\Quest.Core.Data\bin\Debug\Quest.Framework.pdb
+F:\薛帅\Quest.Solution\Quest.Solution\Quest.Core.Data\bin\Debug\EntityFramework.xml
+F:\薛帅\Quest.Solution\Quest.Solution\Quest.Core.Data\bin\Debug\EntityFramework.SqlServer.xml
+F:\薛帅\Quest.Solution\Quest.Solution\Quest.Core.Data\bin\Debug\Newtonsoft.Json.xml
+F:\薛帅\Quest.Solution\Quest.Solution\Quest.Core.Data\obj\Debug\Quest.Core.Data.csprojResolveAssemblyReference.cache
+F:\薛帅\Quest.Solution\Quest.Solution\Quest.Core.Data\obj\Debug\Quest.Core.Data.dll
+F:\薛帅\Quest.Solution\Quest.Solution\Quest.Core.Data\obj\Debug\Quest.Core.Data.pdb

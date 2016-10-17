@@ -18,7 +18,7 @@ Ext.define("QST.Main.Login", {
                 xtype: 'component',
                 styleHtmlContent: true,
                 margin: '0 10 0 10',
-                html: '<div style="text-align:center"><img src="resources/icons/icon-500.png" width="30%" height="30%"></div><div style="text-align:center"></div><div style="text-align:center" font-family:Microsoft YaHei>智慧公租房</div>'
+                html: '<div style="text-align:center"><img src="resources/images/Main/logo@3x.png" width="30%" height="30%"></div><div style="text-align:center"></div>'
             },
             {
                 xtype: 'fieldset',
@@ -52,8 +52,8 @@ Ext.define("QST.Main.Login", {
             text: config.str.loginTitle,
             action: 'login',
             cls: 'loginButton',
-            style: 'font-size:1.4em;',
-            height: '40px',
+            style: 'font-size:1.4em;font-weight:bold',
+            height: '60px',
             margin: '30 20 0 20',
             handler: function (but) {
                 this.up('userLogin').fireEvent('login', but);
@@ -72,8 +72,9 @@ Ext.define("QST.Main.Login", {
                     style: {
                         'text-align': 'left',
                         'margin': '20px 10px 0 20px',
-                        'color': ' #666',
-                        'font-size': '.8em'
+                        'color': ' #00BBFF',
+                        'font-weight': 'bold',
+                        'font-size': '0.8em'
                     },
                     listeners: [{
                         event: 'tap',
@@ -90,8 +91,9 @@ Ext.define("QST.Main.Login", {
                     style: {
                         'text-align': 'right',
                         'margin': '20px 20px 0 10px',
-                        'color': ' #666',
-                        'font-size': '.8em'
+                        'color': ' #00BBFF',
+                        'font-weight': 'bold',
+                        'font-size': '0.8em'
                     },
                     listeners: [{
                         event: 'tap',
@@ -105,16 +107,26 @@ Ext.define("QST.Main.Login", {
             ]
         },
         {
+            html: '<span class="zc">使用社交帐号登录</span>',
+            style: {
+                'text-align': 'center',
+                'margin': '100px 10px 0 20px',
+                'color': ' #888888',
+                'font-weight': 'bold',
+                'font-size': '0.9em'
+            },
+        },
+        {
             xtype: 'panel',
             layout: 'hbox',
-            defaults: { flex: 1  },
+            defaults: { flex: 1 },
             items: [
-                //QQ
+                //微博
                 {
-                    html: '<div style="text-align:center"><img src="resources/icons/icon-500.png" width="30%" height="30%"></div><div style="text-align:center"></div>',
+                    html: '<div style="text-align:center"><img src="resources/images/Main/weibo@2x.png" width="50%" height="50%"></div><div style="text-align:center"></div>',
                     style: {
                         'text-align': 'left',
-                        'margin': '110px 10px 0 50px',
+                        'margin': '40px 10px 0 50px',
                         'color': ' #666',
                         'font-size': '.8em'
                     },
@@ -129,10 +141,10 @@ Ext.define("QST.Main.Login", {
                 },
                 //微信
                 {
-                    html: '<div style="text-align:center"><img src="resources/icons/icon-500.png" width="30%" height="30%"></div><div style="text-align:center"></div>',
+                    html: '<div style="text-align:center"><img src="resources/images/Main/weixin@2x.png" width="50%" height="50%"></div><div style="text-align:center"></div>',
                     style: {
                         'text-align': 'center',
-                        'margin': '110px 20px 0 10px',
+                        'margin': '40px 20px 0 10px',
                         'color': ' #666',
                         'font-size': '.8em'
                     },
@@ -145,12 +157,12 @@ Ext.define("QST.Main.Login", {
                         delegate: 'span.zh'
                     }]
                 },
-                //微博
+                //QQ
                 {
-                    html: '<div style="text-align:center"><img src="resources/icons/icon-500.png" width="30%" height="30%"></div><div style="text-align:center"></div>',
+                    html: '<div style="text-align:center"><img src="resources/images/Main/QQ@2x.png" width="50%" height="50%"></div><div style="text-align:center"></div>',
                     style: {
                         'text-align': 'right',
-                        'margin': '110px 50px 0 10px',
+                        'margin': '40px 50px 0 10px',
                         'color': ' #666',
                         'font-size': '.8em'
                     },
@@ -177,7 +189,7 @@ Ext.define("QST.Main.Login", {
                 var account = me.down('textfield[name=Account]').getValue();
                 var password = me.down('passwordfield[name=Password]').getValue();
                 //是否输入帐号或密码
-                if (account != ""  && password != "") {
+                if (account != "" && password != "") {
                     util.showMessage(config.str.LoginStatus, false);
                     me.submit({
                         url: config.url + '/User/LoginPhone',

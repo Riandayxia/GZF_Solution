@@ -751,11 +751,11 @@ body.x-desktop {
 /*#region 登陆 */
 .loginButton {
     background-image: none;
-    border-bottom-color: #ED5F12;
-    background-color: #FF5B0A;
+    border-bottom-color: #00BBFF;
+    background-color: #00BBFF;
     color: #ffffff;
     border: 0;
-    padding: 0.2em 0;
+    padding: 1em 0;
 }
 /*#endregion*/
 
@@ -1795,6 +1795,66 @@ body.x-desktop {
     background-size: 80% 80% !important;
     border-radius: .5em;
 }
+/*待付款*/
+.daifukuan {
+    background: url(../images/Personal/daifukuan@2x.png) no-repeat center !important;
+    background-size: 80% 80% !important;
+    border-radius: .5em;
+}
+/*待发货*/
+.daifahuo {
+    background: url(../images/Personal/daifahuo@2x.png) no-repeat center !important;
+    background-size: 80% 80% !important;
+    border-radius: .5em;
+}
+/*待收货*/
+.daishouhuo {
+    background: url(../images/Personal/daishouhuo@2x.png) no-repeat center !important;
+    background-size: 80% 80% !important;
+    border-radius: .5em;
+}
+/*待评价*/
+.daipingjia {
+    background: url(../images/Personal/daipingjia@2x.png) no-repeat center !important;
+    background-size: 80% 80% !important;
+    border-radius: .5em;
+}
+/*退款售后*/
+.tuikuanshouhou {
+    background: url(../images/Personal/tuikuanshouhou@2x.png) no-repeat center !important;
+    background-size: 80% 80% !important;
+    border-radius: .5em;
+}
+/*数码电器*/
+.xiyiji {
+    background: url(../images/main/xiyiji@2x.png) no-repeat center !important;
+    background-size: 100% 100% !important;
+    border-radius: .5em;
+}
+/*精品水果*/
+.shuiguo {
+    background: url(../images/main/shuiguo@2x.png) no-repeat center !important;
+    background-size: 100% 100% !important;
+    border-radius: .5em;
+}
+/*食品生鲜*/
+.shengxian {
+    background: url(../images/main/shengxian@2x.png) no-repeat center !important;
+    background-size: 100% 100% !important;
+    border-radius: .5em;
+}
+/*日用百货*/
+.zhijin {
+    background: url(../images/main/zhijin@2x.png) no-repeat center !important;
+    background-size: 100% 100% !important;
+    border-radius: .5em;
+}
+.banner{
+    background-image: url("../images/HouseManage/Housekeeping/banner@3x.png");
+    background-size: 100%;
+    padding-top: 1em;
+}
+
 /*首页样式*/
 /*喇叭样式*/
 .speaker {  width:!00%; height:40px;}

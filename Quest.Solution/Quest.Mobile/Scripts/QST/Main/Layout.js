@@ -1,5 +1,5 @@
 ﻿/**-----------------------------------------------------------------
-* @explanation:主界面布局ABC
+* @explanation:主界面布局
 * @created：Rainday
 * @create time：2015/1/27 
 * @modified history: //修改历史

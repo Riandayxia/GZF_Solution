@@ -19,6 +19,7 @@ Ext.define('config', {
             YueSao: '在线预约—月嫂',
             CareWorkers: '在线预约—护工',
             HomeAunt: '在线预约—住家阿姨',
+            Parenting: '在线预约—育儿嫂',
             Houseprotocol:'《智慧公租房家政服务协议》',
             //账户管理
             MyAccount:'我的账户',

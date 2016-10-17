@@ -15,7 +15,10 @@
             defaults: {
                 flex: 1,
                 xtype: 'button',
-                iconAlign: 'top'
+                iconAlign: 'top',
+                handler: function (but) {
+                    util.redirectTo("QST.Users.Address.MyAccount", "", { parentUrl: "QST.Personal.Layout" });
+                }
             }
         },
         items: [

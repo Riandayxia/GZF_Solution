@@ -1,0 +1,15 @@
+F:\薛帅\Quest.Solution\Quest.Solution\Quest.Framework\obj\Debug\Quest.Framework.csprojResolveAssemblyReference.cache
+F:\薛帅\Quest.Solution\Quest.Solution\Quest.Framework\bin\Debug\Quest.Framework.dll.config
+F:\薛帅\Quest.Solution\Quest.Solution\Quest.Framework\bin\Debug\Quest.Framework.dll
+F:\薛帅\Quest.Solution\Quest.Solution\Quest.Framework\bin\Debug\Quest.Framework.pdb
+F:\薛帅\Quest.Solution\Quest.Solution\Quest.Framework\bin\Debug\EntityFramework.dll
+F:\薛帅\Quest.Solution\Quest.Solution\Quest.Framework\bin\Debug\EntityFramework.SqlServer.dll
+F:\薛帅\Quest.Solution\Quest.Solution\Quest.Framework\bin\Debug\Newtonsoft.Json.dll
+F:\薛帅\Quest.Solution\Quest.Solution\Quest.Framework\bin\Debug\System.Data.dll
+F:\薛帅\Quest.Solution\Quest.Solution\Quest.Framework\bin\Debug\System.dll
+F:\薛帅\Quest.Solution\Quest.Solution\Quest.Framework\bin\Debug\System.Xml.dll
+F:\薛帅\Quest.Solution\Quest.Solution\Quest.Framework\bin\Debug\EntityFramework.xml
+F:\薛帅\Quest.Solution\Quest.Solution\Quest.Framework\bin\Debug\EntityFramework.SqlServer.xml
+F:\薛帅\Quest.Solution\Quest.Solution\Quest.Framework\bin\Debug\Newtonsoft.Json.xml
+F:\薛帅\Quest.Solution\Quest.Solution\Quest.Framework\obj\Debug\Quest.Framework.dll
+F:\薛帅\Quest.Solution\Quest.Solution\Quest.Framework\obj\Debug\Quest.Framework.pdb

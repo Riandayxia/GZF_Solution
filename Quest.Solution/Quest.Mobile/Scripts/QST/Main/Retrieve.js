@@ -15,79 +15,79 @@ Ext.define("QST.Main.Retrieve", {
         redirect: null,
         items: [
            {
-                xtype: 'fieldset',
-                defaults: {
-                    labelWidth: '40%'
-                },
-                margin: '30 10 0 10',
-                items: [
+               xtype: 'fieldset',
+               defaults: {
+                   labelWidth: '40%'
+               },
+               margin: '30 10 0 10',
+               items: [
+                   {
+                       name: 'Mobile',
+                       placeHolder: '注册时使用的手机号（必填）',
+                       xtype: 'textfield', regex: /^1[3|4|5|8][0-9]{9}$/,
+                       regexText: '手机号码格式错误！',
+                       anchor: '90%',
+                       allowBlank: true
+                   },
                     {
-                        name: 'Mobile',
-                        placeHolder: '注册时使用的手机号（必填）',
-                        xtype: 'textfield', regex: /^1[3|4|5|8][0-9]{9}$/,
-                        regexText: '手机号码格式错误！',
-                        anchor: '90%',
-                        allowBlank: true
+                        label: '手机是否验证',
+                        name: 'IsValidMobile',
+                        xtype: 'hiddenfield'
                     },
                      {
-                         label: '手机是否验证',
-                         name: 'IsValidMobile',
-                         xtype: 'hiddenfield'
-                     },
-                      {
-                          xtype: 'panel',
-                          layout: 'hbox',
-                          cls: 'selectFile',
-                          items: [
-                              {
-                                  xtype: 'textfield',
-                                  name: 'VerificationCode',
-                                  placeHolder: '验证码（必填）',
-                                  allowBlank: true,
-                                  flex: 1,
-                                  labelWidth: '33%'
-                              }, {
-                                  xtype: 'button',
-                                  text: '获取验证码',
-                                  cls: 'vEditButton',
-                                  style: 'font-size:0.8em',
-                                  height: '35px',
-                                  width: '80px',
-                                  handler: function (but) {
-                                      //this.up('measuremanage_materialbilling_edit').fireEvent('setContract', but);
-                                  }
-                              }
-                          ]
-                      },
-                      {
-                          name: 'Password',
-                           placeHolder: '新密码,6-12位的数字或字母（必填）',
-                           xtype: 'passwordfield',
-                           regex: /^[\da-zA-z]{6,12}$/,
-                           regexText: '密码格式错误！',
-                           anchor: '90%',
-                           allowBlank: true
-                       },
-                     {
-                         label: '密码是否验证',
-                         name: 'IsValidPassword',
-                         xtype: 'hiddenfield'
+                         xtype: 'panel',
+                         layout: 'hbox',
+                         cls: 'selectFile',
+                         items: [
+                             {
+                                 xtype: 'textfield',
+                                 name: 'VerificationCode',
+                                 placeHolder: '验证码（必填）',
+                                 allowBlank: true,
+                                 flex: 1,
+                                 labelWidth: '33%'
+                             }, {
+                                 xtype: 'button',
+                                 text: '获取验证码',
+                                 cls: 'loginButton',
+                                 style: 'font-size:0.8em;',
+                                 height: '40px',
+                                 width: '80px',
+                                 handler: function (but) {
+                                     //this.up('measuremanage_materialbilling_edit').fireEvent('setContract', but);
+                                 }
+                             }
+                         ]
                      },
                      {
-                         name: 'Passwords',
+                         name: 'Password',
+                         placeHolder: '新密码,6-12位的数字或字母（必填）',
                          xtype: 'passwordfield',
-                         placeHolder: '再次输入密码（必填）',
+                         regex: /^[\da-zA-z]{6,12}$/,
+                         regexText: '密码格式错误！',
+                         anchor: '90%',
                          allowBlank: true
                      },
-                ]
-            },
+                    {
+                        label: '密码是否验证',
+                        name: 'IsValidPassword',
+                        xtype: 'hiddenfield'
+                    },
+                    {
+                        name: 'Passwords',
+                        xtype: 'passwordfield',
+                        placeHolder: '再次输入密码（必填）',
+                        allowBlank: true
+                    },
+               ]
+           },
         {
             xtype: 'button',
             text: '确认',
             action: 'login',
             cls: 'loginButton',
             style: 'font-size:1.4em;',
-            height: '40px',
+            height: '60px',
             margin: '30 20 0 20',
             handler: function (but) {
                 var me = this.up('main_retrieve');

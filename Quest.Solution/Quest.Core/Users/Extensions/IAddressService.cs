@@ -15,7 +15,7 @@ namespace Quest.Core.Users
 
         #region 公共方法
         /// <summary>
-        /// 登录
+        /// 根据用户Id查询
         /// </summary>
         /// <param name="entity"></param>
         /// <returns></returns>

@@ -46,19 +46,19 @@
                        items: [
                             {
                                 text: '待付款',
-                                iconCls: 'htgl'
+                                iconCls: 'daifukuan'
                             }, {
                                 text: '待发货',
-                                iconCls: 'htgl'
+                                iconCls: 'daifahuo'
                             }, {
                                 text: '待收货',
-                                iconCls: 'htgl'
+                                iconCls: 'daishouhuo'
                             }, {
                                 text: '待评论',
-                                iconCls: 'htgl'
+                                iconCls: 'daipingjia'
                             }, {
                                 text: '退款/售后',
-                                iconCls: 'htgl'
+                                iconCls: 'tuikuanshouhou'
                             }
                        ]
                    }

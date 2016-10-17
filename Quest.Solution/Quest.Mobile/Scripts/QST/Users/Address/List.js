@@ -10,10 +10,10 @@ Ext.define('QST.Users.Address.List', {
     config: {
         isPage: false,
         moreBut: true,
-        rootProperty: "data", //root属性<input type="radio" name="field＿name" checked value="'value" > 
+        rootProperty: "data",
         addBut: true,
         cls: 'ux_list',
-        search: true,//是否添加查询
+        search: false,//是否添加查询
         defTitle: '删除选中数据', // 标题
         ckId: 'Id',  //设置数据主键(可配置)
         listMenu: [
@@ -29,31 +29,37 @@ Ext.define('QST.Users.Address.List', {
            '<div class="container">',
                '<div class="header"><h1>{Receiver}<h1></div>',
                '<div class="header2">',
-                  '<div class="ctent" style="width:30%;"><li class="title">联系电话</li><li><span class="_ctent">{Mobile}</span></li></div>',
-                  '<div class="ctent" style="width:50%;"><li class="title">详细地址</li><li><span class="_ctent">{DetailedAddress}</span></li></div>',
-                  '<div class="ctent" style="width:20%;"><li class="title">设置为默认地址</li><li><span class="_ctent">{[this.IsDefault(values.IsDefault)]}</span></li></div>',
+                  '<div class="ctent" style="width:40%;"><li class="title">联系电话</li><li><span class="_ctent">{Mobile}</span></li></div>',
+                  '<div class="ctent" style="width:60%;"><li class="title">收货地址</li><li><span class="_ctent">{DetailedAddress}</span></li></div>',
                '</div>',
-               '<div class="footer"></div>',
-           '</div>', {
-               //是否为默认地址
-               IsDefault: function (val) {
-                   switch (val) {
-                       case false:
-                           var str = '<input class="rad" type="radio" style="width:20px;height:20px" name="radiobutton" > ';
-                           break;
-                       case true:
-                           var str = '<input class="rad" type="radio" style="width:20px;height:20px" name="radiobutton" checked> ';
-                           break;
-                   }
-                   return str;
-               }
-           }),
-        //fieldArray: [
-        //   { label: '联系电话', name: 'Mobile', value: '15823366974' },
-        //   { label: '收货人', name: 'Receiver', value: '小王' },
-        //   { label: '所在小区', name: 'TheCell', value: '南城花园' },
-        //   { label: '详细地址', name: 'DetailedAddress', value: '重庆市江北区观音桥' },
-        //],
+               '<div class="footer"style="height: 50px">',
+                    //默认收货地址
+                   '<div class="ctent" style="width:50%;">',
+                      '<div style="float:left;width:40%;margin:15px 0 0 0"><span class="_ctent">{[this.IsDefault(values.IsDefault)]}</span></div>',
+                      '<div style="float:left;width:50%;text-align:left;margin:22px 0 0 0"><span style="font-size: 150%; margin: 0 0 0 -40px;">设置为默认地址</span></div>',
+                   '</div>',
+                   //修改
+                   '<div class="ctent" style="width:20%;">',
+                    '<div style="float:center;width:120%;height: 70%;margin:13px 0 0 0"><img class="updates"  src="resources/images/Users/Address/laji@2x.png"/></div>',
+                   '</div>',
+                   //删除
+                   '<div class="ctent" style="width:20%;">',
+                      '<div style="float:center;width:120%;height: 70%;margin:13px 0 0 0"><img class="delete"  src="resources/images/Users/Address/laji@2x.png"/></div>',
+                   '</div>',
+              '</div>',
+          '</div>', {
+              IsDefault: function (val) {
+                  switch (val) {
+                      case false:
+                          var str = '<img class="rad" src="resources/images/Users/Address/weigouxuan@2x.png" width="80px" height="80px"> ';
+                          break;
+                      case true:
+                          var str = '<img class="rad" src="resources/images/Users/Address/yigouxuan@2x.png" width="80%" height="80%"> ';
+                          break;
+                  }
+                  return str;
+              }
+          }),
         listeners: {
             //返回上一级
             Back: function (but, list) {
@@ -74,9 +80,10 @@ Ext.define('QST.Users.Address.List', {
             },
             //单击查看详细信息
             itemsingletap: function (list, index, target, record, e, eOpts) {
-                if (e.target.name == "radiobutton") {
+                //改变默认地址
+                if (e.target.className == "rad") {
                     var record = util.copyObjects(record.data);
-                    if (record.IsDefault==false) {
+                    if (record.IsDefault == false) {
                         record.IsDefault = true
                         Ext.Ajax.request({
                             url: config.url + '/Address/Update',//提交地址
@@ -92,10 +99,24 @@ Ext.define('QST.Users.Address.List', {
                             }
                         });
                     }
-                } else {
+                }
+                //编辑地址信息
+                if (e.target.className == "updates") {
                     var record = util.copyObjects(record.data);
-                    util.redirectTo("QST.Users.Address.Details", "", {
-                        parentUrl: "QST.Users.Address.List", data: record
+                    util.redirectTo("QST.Users.Address.Edit", "", {
+                        parentUrl: "QST.Users.Address.List", data: record,
+                        url: config.url + '/Address/Update'
+                    });
+                }
+                //删除地址
+                if (e.target.className == "delete") {
+                    var record = util.copyObjects(record.data);
+                    util.DoDelete({
+                        url: config.url + '/Address/Delete',
+                        params: { ids: record.Id },
+                        success: function (response) {
+                            list.rendering();
+                        }
                     });
                 }
             },
@@ -126,12 +147,6 @@ Ext.define('QST.Users.Address.List', {
             }
         }
     },
-    ////初始化
-    //constructor: function (config) {
-    //    var me = this;
-    //    this.callParent(arguments);
-    //    me.set_Listener();
-    //},
     //主界面到此界面时加载[List刷新时会默认加载此方法]
     rendering: function (params) {
         if (params) {
@@ -153,20 +168,5 @@ Ext.define('QST.Users.Address.List', {
         //当编辑数据成功时加载数据
         this.getStore().setParams({ userId: this.UserId });
         this.getStore().load();
-    },
-    // 设置事件
-    set_Listener: function () {
-        var me = this;
-        // 默认地址
-        me.addListener('tap', function (but, view, record) {
-            util.redirectTo("SH.App.HRManagement.UserBank.List", "",
-                         {
-                             parentUrl: "QST.Users.Address.MyAccount",
-                             data: { BankUserId: this.Id }
-                         });
-        }, me, {
-            element: 'innerElement',
-            delegate: 'input.rad'
-        });
     }
 })
