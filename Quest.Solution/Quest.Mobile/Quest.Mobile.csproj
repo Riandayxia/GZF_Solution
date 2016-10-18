@@ -372,6 +372,7 @@
     <Content Include="Scripts\resources\images\HouseManage\Housekeeping\yuesao%402x.png" />
     <Content Include="Scripts\resources\images\HouseManage\Housekeeping\zhongdiangong%402x.png" />
     <Content Include="Scripts\resources\images\HouseManage\Housekeeping\zhujiaayi%402x.png" />
+    <Content Include="Scripts\resources\images\main\banner%402x.png" />
     <Content Include="Scripts\resources\images\main\convenience2x.png" />
     <Content Include="Scripts\resources\images\main\logo%403x.png" />
     <Content Include="Scripts\resources\images\main\QQ%402x.png" />
@@ -389,7 +390,19 @@
     <Content Include="Scripts\resources\images\main\speaker2x.png" />
     <Content Include="Scripts\resources\images\main\xiyiji%402x.png" />
     <Content Include="Scripts\resources\images\main\zhijin%402x.png" />
+    <Content Include="Scripts\resources\images\main\ganhong%402x.png" />
+    <Content Include="Scripts\resources\images\main\xianguobanner%402x.png" />
     <Content Include="Scripts\resources\images\mallTop.png" />
+    <Content Include="Scripts\resources\images\Mall\dianqi%403x.png" />
+    <Content Include="Scripts\resources\images\Mall\duobianxing1%402x.png" />
+    <Content Include="Scripts\resources\images\Mall\duobianxing2%402x.png" />
+    <Content Include="Scripts\resources\images\Mall\duobianxing3%402x.png" />
+    <Content Include="Scripts\resources\images\Mall\shengxian%402x.png" />
+    <Content Include="Scripts\resources\images\Mall\shouji%403x.png" />
+    <Content Include="Scripts\resources\images\Mall\shuiguo%402x.png" />
+    <Content Include="Scripts\resources\images\Mall\shuiguolan%403x.png" />
+    <Content Include="Scripts\resources\images\Mall\xiyiji%402x.png" />
+    <Content Include="Scripts\resources\images\Mall\zhijin%402x.png" />
     <Content Include="Scripts\resources\images\middle_img_2.png" />
     <Content Include="Scripts\resources\images\middle_img_3.png" />
     <Content Include="Scripts\resources\images\ok.png" />

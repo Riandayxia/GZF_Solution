@@ -123,7 +123,7 @@ Ext.define("QST.Main.Login", {
             items: [
                 //微博
                 {
-                    html: '<div style="text-align:center"><img src="resources/images/Main/weibo@2x.png" width="50%" height="50%"></div><div style="text-align:center"></div>',
+                    html: '<div style="text-align:center"><img src="resources/images/Main/weibo@2x.png" width="45px" height="45px"></div><div style="text-align:center"></div>',
                     style: {
                         'text-align': 'left',
                         'margin': '40px 10px 0 50px',
@@ -141,7 +141,7 @@ Ext.define("QST.Main.Login", {
                 },
                 //微信
                 {
-                    html: '<div style="text-align:center"><img src="resources/images/Main/weixin@2x.png" width="50%" height="50%"></div><div style="text-align:center"></div>',
+                    html: '<div style="text-align:center"><img src="resources/images/Main/weixin@2x.png" width="45px" height="45px"></div><div style="text-align:center"></div>',
                     style: {
                         'text-align': 'center',
                         'margin': '40px 20px 0 10px',
@@ -159,7 +159,7 @@ Ext.define("QST.Main.Login", {
                 },
                 //QQ
                 {
-                    html: '<div style="text-align:center"><img src="resources/images/Main/QQ@2x.png" width="50%" height="50%"></div><div style="text-align:center"></div>',
+                    html: '<div style="text-align:center"><img src="resources/images/Main/QQ@2x.png" width="45px" height="45px"></div><div style="text-align:center"></div>',
                     style: {
                         'text-align': 'right',
                         'margin': '40px 50px 0 10px',

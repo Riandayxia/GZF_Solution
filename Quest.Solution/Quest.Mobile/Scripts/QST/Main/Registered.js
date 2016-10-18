@@ -115,6 +115,11 @@ Ext.define("QST.Main.Registered", {
                 }
             ]
         },
+        {
+            xtype: 'hiddenfield',
+            name: 'Protocol',
+            value:'true'
+        },
          {
              xtype: 'panel',
              layout: 'hbox',
@@ -122,27 +127,29 @@ Ext.define("QST.Main.Registered", {
                  flex: 1,
              },
              items: [
-
                  {
-                     xtype: 'checkboxfield',
-                     name: 'Protocol',
-                     margin: '250 0 0 0',
-                     //html: '<img class="rad" src="resources/images/Users/Address/yigouxuan@2x.png" width="20%" height="20%"> ',
-                     //style: {
-                     //    'font-size': '1.4em;',
-                     //    'text-align': 'center',
-                     //    'margin': '20px 10px 0 20px',
-                     //    'color': ' #666',
-                     //},
-                     //listeners: [{
-                     //    event: 'tap',
-                     //    fn: function () {
-                     //        util.redirectTo("QST.Main.Login");
-                     //    },
-                     //    element: 'innerElement',
-                     //    delegate: 'img.rad'
-                     //}],
-                     checked: true,
+                     margin: '253 10 0 0',
+                     style: {
+                         'text-align': 'right',
+                     },
+                     html: '<div ><img class="wujiang_pic_size" id="caocao_pic" src="resources/images/Users/Address/yigouxuan@2x.png" width="25px" height="25px"></div>',
+                     listeners: [{
+                         event: 'tap',
+                         fn: function () {
+                             var imgObj = document.getElementById("caocao_pic");
+                             var pro = this.up().up().down('hiddenfield[name=Protocol]').getValue();
+                             if (pro == "false") {
+                                 pro = "true"
+                             } else {
+                                 pro="false"
+                             }
+                             this.up().up().down('hiddenfield[name=Protocol]').setValue(pro)
+                             var Flag = (imgObj.getAttribute("src", 2) == "resources/images/Users/Address/yigouxuan@2x.png")
+                             imgObj.src = Flag ? "resources/images/Users/Address/weigouxuan@2x.png" : "resources/images/Users/Address/yigouxuan@2x.png";
+                         },
+                         element: 'innerElement',
+                         delegate: 'img.wujiang_pic_size'
+                     }]
                  }, {
                      html: '<div style="width:300px;">已同意并阅读<span class="dl", style="color: #00BBFF ">《注册协议》</span></div>',
                      style: {
@@ -200,8 +207,8 @@ Ext.define("QST.Main.Registered", {
                     return;
                 }
                 //是否同意协议
-                var Protocol = view.down('checkboxfield[name=Protocol]').getChecked();
-                if (Protocol == false) {
+                var Protocol = view.down('hiddenfield[name=Protocol]').getValue();
+                if (Protocol == "false") {
                     Ext.Msg.alert('提示', '未同意并阅读注册协议！');
                     return;
                 }

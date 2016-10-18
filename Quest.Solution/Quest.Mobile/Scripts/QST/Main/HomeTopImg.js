@@ -17,15 +17,15 @@ Ext.define('QST.Main.HomeTopImg', {
         items: [
             {
                 xtype: 'panel',
-                html: '<img src="resources/images/top-1.png" class="topImg" fire="onDelete">'
+                html: '<img src="resources/images/main/banner@2x.png" class="topImg" fire="onDelete">'
             },
             {
                 xtype: 'panel',
-                html: '<img src="resources/images/5.jpg" class="topImg" fire="onDelete">'
+                html: '<img src="resources/images/main/ganhong@2x.png" class="topImg" fire="onDelete">'
             },
             {
                 xtype: 'panel',
-                html: '<img src="resources/images/6.jpg"  class="topImg" fire="onDelete">'
+                html: '<img src="resources/images/main/xianguobanner@2x.png"  class="topImg" fire="onDelete">'
             }
         ]
     }
